@@ -1,0 +1,6 @@
+name = "dream-interpretation-pages"
+compatibility_date = "2026-03-14"
+pages_build_output_dir = "./dist"
+
+[vars]
+SITE_NAME = "달빛해몽소"

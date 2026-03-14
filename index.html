@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="OpenAI API를 서버측에서 호출하는 Cloudflare Pages용 꿈해몽 사이트 MVP입니다. 꿈 내용, 감정, 현실 맥락을 함께 해석합니다."
+    />
+    <meta name="theme-color" content="#f7f2e8" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:title" content="달빛해몽소 | Cloudflare Pages 꿈해몽" />
+    <meta
+      property="og:description"
+      content="꿈 내용을 적으면 상징, 감정, 현실 맥락을 구조화해서 읽어주는 경량 해몽 사이트."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>달빛해몽소 | Cloudflare Pages 꿈해몽 사이트</title>
+  </head>
+  <body>
+    <noscript>
+      <div style="padding:16px;font-family:'Noto Sans KR',sans-serif;color:#1d2a31;background:#f7f2e8">
+        이 서비스는 꿈해몽 워크스페이스와 결과 기능을 위해 JavaScript가 필요합니다.
+      </div>
+    </noscript>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

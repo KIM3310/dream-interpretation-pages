@@ -1,0 +1,17 @@
+{
+  "name": "달빛해몽소",
+  "short_name": "달빛해몽소",
+  "description": "Cloudflare Pages와 OpenAI API로 만든 꿈해몽 서비스",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f2e8",
+  "theme_color": "#f7f2e8",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
