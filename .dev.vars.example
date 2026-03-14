@@ -1,0 +1,4 @@
+OPENAI_API_KEY=sk-your-openai-api-key
+OPENAI_MODEL=gpt-4.1-mini
+SITE_NAME=달빛해몽소
+TURNSTILE_SECRET_KEY=
