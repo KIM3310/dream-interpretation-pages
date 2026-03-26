@@ -90,6 +90,16 @@ const focusAreaLabels: Record<string, string> = {
   recovery: '내면 회복',
 }
 
+const fallbackSymbolCatalog = [
+  { match: ['물', '바다', '강', '비'], symbol: '물', meaning: '감정의 흐름과 피로 누적, 컨디션 변화를 함께 비추는 상징', weight: 'high' as const },
+  { match: ['시험', '면접', '발표', '평가'], symbol: '평가 장면', meaning: '성과 압박, 준비 불안, 실수에 대한 민감함을 보여주는 상징', weight: 'high' as const },
+  { match: ['떨어', '추락', '미끄러'], symbol: '낙하', meaning: '통제감이 흔들리거나 기반이 불안정하다고 느끼는 상태를 반영하는 상징', weight: 'high' as const },
+  { match: ['이빨', '치아'], symbol: '이빨', meaning: '체면, 관계 긴장, 말실수에 대한 불안을 드러내는 상징', weight: 'medium' as const },
+  { match: ['돈', '지갑', '카드', '결제'], symbol: '돈/결제', meaning: '안정감, 기회, 손실 회피 심리가 동시에 얽힌 장면을 뜻하는 상징', weight: 'medium' as const },
+  { match: ['회사', '상사', '출근', '퇴사', '이직'], symbol: '일터', meaning: '역할 부담, 책임감, 진로 방향에 대한 압박을 보여주는 상징', weight: 'medium' as const },
+  { match: ['가족', '친구', '연인', '엄마', '아빠'], symbol: '관계 인물', meaning: '관계에서 미처 정리하지 못한 감정과 기대를 드러내는 상징', weight: 'medium' as const },
+]
+
 export const onRequestPost = async ({ request, env }: PagesContext) => {
   const rateLimitResult = await enforceRateLimit(request, env)
 
@@ -102,15 +112,6 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
       {
         'Retry-After': String(rateLimitResult.retryAfterSeconds),
       },
-    )
-  }
-
-  if (!env.OPENAI_API_KEY) {
-    return json(
-      {
-        error: 'OPENAI_API_KEY가 설정되지 않았습니다. Cloudflare Pages 환경변수를 먼저 등록하세요.',
-      },
-      500,
     )
   }
 
@@ -164,6 +165,20 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
 
   const model = env.OPENAI_MODEL ?? 'gpt-5.2'
   const siteName = env.SITE_NAME ?? '달빛해몽소'
+
+  if (!env.OPENAI_API_KEY) {
+    return json(
+      buildFallbackInterpretation({
+        analysisMode,
+        dream,
+        emotion,
+        focusArea,
+        siteName,
+        sleepContext,
+      }),
+      200,
+    )
+  }
 
   const controller = new AbortController()
   const timeoutId = setTimeout(() => controller.abort(), 12000)
@@ -326,6 +341,69 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   }
 
   return json(interpretation, 200)
+}
+
+function buildFallbackInterpretation(input: {
+  analysisMode: string
+  dream: string
+  emotion: string
+  focusArea: string
+  siteName: string
+  sleepContext: string
+}): DreamInterpretation {
+  const symbols = fallbackSymbolCatalog
+    .filter((entry) => entry.match.some((token) => input.dream.includes(token)))
+    .slice(0, 3)
+    .map(({ symbol, meaning, weight }) => ({ symbol, meaning, weight }))
+
+  if (symbols.length === 0) {
+    symbols.push({
+      symbol: '반복 장면',
+      meaning: '아직 정리되지 않은 감정과 현실 고민이 꿈 장면으로 재배치된 것으로 읽을 수 있습니다.',
+      weight: 'medium',
+    })
+  }
+
+  const lifeAreas =
+    input.focusArea === 'career'
+      ? ['일과 진로', '성과 압박', '자기효능감']
+      : input.focusArea === 'relationship'
+        ? ['관계', '대화', '경계 설정']
+        : input.focusArea === 'money'
+          ? ['돈과 기회', '안정감', '의사결정']
+          : input.focusArea === 'recovery'
+            ? ['회복', '수면 리듬', '정서 안정']
+            : ['감정 흐름', '일상 스트레스', '현재 우선순위']
+
+  const keywords = Array.from(
+    new Set(
+      [
+        symbols[0]?.symbol,
+        focusAreaLabels[input.focusArea] ?? '전체 흐름',
+        input.emotion,
+        input.sleepContext,
+      ].filter((value): value is string => Boolean(value)),
+    ),
+  ).slice(0, 4)
+
+  const focusLabel = focusAreaLabels[input.focusArea] ?? '전체 흐름'
+  const depthLabel = analysisModeLabels[input.analysisMode] ?? '균형 해석'
+  const symbolSummary = symbols.map((item) => item.symbol).join(', ')
+
+  return {
+    headline: `${focusLabel} 관점에서 읽는 꿈의 핵심`,
+    overallMeaning: `${input.siteName} 기준으로 이 꿈은 '${symbolSummary}' 같은 상징을 통해 현재 스트레스와 기대가 동시에 드러나는 장면으로 읽힙니다. 좋은/나쁜 꿈으로 단정하기보다 지금 가장 신경 쓰이는 현실 과제가 꿈에서 압축된 것으로 보는 편이 자연스럽습니다.`,
+    emotionalTheme: `최근 감정이 '${input.emotion}'이고 꿈 직전 맥락이 '${input.sleepContext}'인 점을 보면, 마음이 완전히 정리되기 전 단계에서 경계심과 기대가 함께 올라와 있는 흐름으로 볼 수 있습니다.`,
+    focusSummary: `${depthLabel} 기준으로 보면, 이 꿈은 '${focusLabel}' 영역에서 통제감과 안정감을 다시 확보하고 싶은 마음이 두드러집니다. 특히 ${symbols[0]?.symbol ?? '반복 장면'}이 그 욕구를 가장 직접적으로 드러냅니다.`,
+    reflectionQuestion: `${focusLabel} 영역에서 지금 가장 먼저 정리해야 하는 현실 이슈 하나를 꼽는다면 무엇인가요? 그리고 그 이슈를 오늘 안에 10분만이라도 가볍게 손댈 수 있을까요?`,
+    keySymbols: symbols,
+    lifeAreas,
+    recommendedKeywords: keywords,
+    actionTip: '꿈을 곧바로 예언처럼 해석하기보다, 지금 마음을 가장 많이 잡아끄는 현실 과제 하나와 연결해서 메모해 보세요.',
+    cautionNote: '이 해석은 자동 fallback 요약입니다. 실제 API 키가 연결되면 더 풍부한 문장형 해석으로 확장됩니다.',
+    shareSnippet: `${focusLabel} 관점에서 보면, 이 꿈은 ${symbols[0]?.symbol ?? '반복 장면'}을 통해 지금 마음이 붙잡고 있는 과제를 보여줍니다.`,
+    disclaimer: '참고용 해석이며 의료·법률·투자·진로 결정을 대신하지 않습니다.',
+  }
 }
 
 function normalizeChoice(value: string | undefined, choices: Set<string>, fallback: string) {
