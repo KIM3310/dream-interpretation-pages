@@ -115,7 +115,9 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     )
   }
 
-  if (requiresDurableAbuseProtection(env)) {
+  const hasOpenAiKey = Boolean(env.OPENAI_API_KEY)
+
+  if (hasOpenAiKey && requiresDurableAbuseProtection(env)) {
     return json(
       {
         error: '공개 배포에서는 TURNSTILE_SECRET_KEY 또는 RATE_LIMITER 설정이 필요합니다.',
@@ -166,7 +168,7 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   const model = env.OPENAI_MODEL ?? 'gpt-5.2'
   const siteName = env.SITE_NAME ?? '달빛해몽소'
 
-  if (!env.OPENAI_API_KEY) {
+  if (!hasOpenAiKey) {
     return json(
       buildFallbackInterpretation({
         analysisMode,
