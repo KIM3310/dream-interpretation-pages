@@ -162,7 +162,7 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     }
   }
 
-  const model = env.OPENAI_MODEL ?? 'gpt-4.1-mini'
+  const model = env.OPENAI_MODEL ?? 'gpt-5.2'
   const siteName = env.SITE_NAME ?? '달빛해몽소'
 
   const controller = new AbortController()

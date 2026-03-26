@@ -30,7 +30,7 @@ npm run cf:dev
 ## 환경 변수
 
 - `OPENAI_API_KEY`: 서버에서 사용할 OpenAI API 키
-- `OPENAI_MODEL`: 선택 사항. 기본값은 `gpt-4.1-mini`
+- `OPENAI_MODEL`: 선택 사항. 기본값은 `gpt-5.2`
 - `SITE_NAME`: 사이트 브랜드명
 - `TURNSTILE_SECRET_KEY`: 선택 사항. 설정하면 폼 제출 전에 Turnstile 검증을 강제합니다.
 - `RATE_LIMITER`: 선택 사항. Cloudflare KV 바인딩을 붙이면 분당 요청 제한이 isolate 간에도 더 안정적으로 유지됩니다.

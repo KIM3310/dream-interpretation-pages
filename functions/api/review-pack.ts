@@ -35,7 +35,7 @@ export const onRequestGet = async ({ env }: PagesContext) => {
       "Reviewer pack for the Cloudflare Pages dream interpreter: abuse posture, model contract, and content boundary in one route.",
     proof_bundle: {
       interpret_route: "/api/interpret",
-      model: env.OPENAI_MODEL ?? "gpt-4.1-mini",
+      model: env.OPENAI_MODEL ?? "gpt-5.2",
       site_name: env.SITE_NAME ?? "달빛해몽소",
       openai_configured: hasApiKey,
       turnstile_enabled: hasTurnstile,
