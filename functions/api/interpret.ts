@@ -199,7 +199,7 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   }
 
   const controller = new AbortController()
-  const timeoutId = setTimeout(() => controller.abort(), 12000)
+  const timeoutId = setTimeout(() => controller.abort(), 20000)
 
   let upstreamResponse: Response
 
