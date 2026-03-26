@@ -1,4 +1,6 @@
 interface Env {
+  GEMINI_API_KEY?: string
+  GEMINI_MODEL?: string
   OPENAI_API_KEY?: string
   OPENAI_MODEL?: string
   SITE_NAME?: string
@@ -22,6 +24,19 @@ interface ChatCompletionResponse {
     message?: {
       content?: string
       refusal?: string
+    }
+  }>
+  error?: {
+    message?: string
+  }
+}
+
+interface GeminiGenerateContentResponse {
+  candidates?: Array<{
+    content?: {
+      parts?: Array<{
+        text?: string
+      }>
     }
   }>
   error?: {
@@ -166,9 +181,10 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   }
 
   const model = env.OPENAI_MODEL ?? 'gpt-5.2'
+  const geminiModel = env.GEMINI_MODEL ?? 'gemini-2.5-flash'
   const siteName = env.SITE_NAME ?? '달빛해몽소'
 
-  if (!hasOpenAiKey) {
+  if (!hasOpenAiKey && !env.GEMINI_API_KEY) {
     return json(
       buildFallbackInterpretation({
         analysisMode,
@@ -188,109 +204,151 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   let upstreamResponse: Response
 
   try {
-    upstreamResponse = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${env.OPENAI_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model,
-        temperature: 0.8,
-        messages: [
-          {
-            role: 'system',
-            content: [
-              `너는 ${siteName}의 한국어 꿈해몽 에디터다.`,
-              '길몽/흉몽으로 단정하지 말고 상징, 감정, 현실 맥락을 연결해서 설명한다.',
-              '의료, 투자, 법률 조언처럼 들리지 않게 하고, 참고용이라는 점을 유지한다.',
-              '반드시 JSON만 출력한다.',
-            ].join(' '),
+    upstreamResponse = hasOpenAiKey
+      ? await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+            'Content-Type': 'application/json',
           },
-          {
-            role: 'user',
-            content: [
-              `꿈 내용: ${dream}`,
-              `최근 감정: ${emotion}`,
-              `꿈 직전 상황: ${sleepContext}`,
-              `해석 깊이: ${analysisModeLabels[analysisMode]}`,
-              `가장 보고 싶은 관점: ${focusAreaLabels[focusArea]}`,
-              '해석은 실서비스형 도구처럼 구조적이고 재사용 가능하게 써라.',
-              '관심 관점에 맞는 연결 요약과 다음에 스스로 적어볼 질문을 반드시 포함해라.',
-              '추천 키워드는 검색/재방문용 짧은 표현 2~4개로 만들어라.',
-              '아래 스키마에 맞춰 해석해라.',
-            ].join('\n'),
-          },
-        ],
-        response_format: {
-          type: 'json_schema',
-          json_schema: {
-            name: 'dream_interpretation',
-            strict: true,
-            schema: {
-              type: 'object',
-              additionalProperties: false,
-              properties: {
-                headline: { type: 'string' },
-                overallMeaning: { type: 'string' },
-                emotionalTheme: { type: 'string' },
-                focusSummary: { type: 'string' },
-                reflectionQuestion: { type: 'string' },
-                keySymbols: {
-                  type: 'array',
-                  minItems: 2,
-                  maxItems: 4,
-                  items: {
-                    type: 'object',
-                    additionalProperties: false,
-                    properties: {
-                      symbol: { type: 'string' },
-                      meaning: { type: 'string' },
-                      weight: {
-                        type: 'string',
-                        enum: ['high', 'medium', 'low'],
+          body: JSON.stringify({
+            model,
+            temperature: 0.8,
+            messages: [
+              {
+                role: 'system',
+                content: [
+                  `너는 ${siteName}의 한국어 꿈해몽 에디터다.`,
+                  '길몽/흉몽으로 단정하지 말고 상징, 감정, 현실 맥락을 연결해서 설명한다.',
+                  '의료, 투자, 법률 조언처럼 들리지 않게 하고, 참고용이라는 점을 유지한다.',
+                  '반드시 JSON만 출력한다.',
+                ].join(' '),
+              },
+              {
+                role: 'user',
+                content: [
+                  `꿈 내용: ${dream}`,
+                  `최근 감정: ${emotion}`,
+                  `꿈 직전 상황: ${sleepContext}`,
+                  `해석 깊이: ${analysisModeLabels[analysisMode]}`,
+                  `가장 보고 싶은 관점: ${focusAreaLabels[focusArea]}`,
+                  '해석은 실서비스형 도구처럼 구조적이고 재사용 가능하게 써라.',
+                  '관심 관점에 맞는 연결 요약과 다음에 스스로 적어볼 질문을 반드시 포함해라.',
+                  '추천 키워드는 검색/재방문용 짧은 표현 2~4개로 만들어라.',
+                  '아래 스키마에 맞춰 해석해라.',
+                ].join('\n'),
+              },
+            ],
+            response_format: {
+              type: 'json_schema',
+              json_schema: {
+                name: 'dream_interpretation',
+                strict: true,
+                schema: {
+                  type: 'object',
+                  additionalProperties: false,
+                  properties: {
+                    headline: { type: 'string' },
+                    overallMeaning: { type: 'string' },
+                    emotionalTheme: { type: 'string' },
+                    focusSummary: { type: 'string' },
+                    reflectionQuestion: { type: 'string' },
+                    keySymbols: {
+                      type: 'array',
+                      minItems: 2,
+                      maxItems: 4,
+                      items: {
+                        type: 'object',
+                        additionalProperties: false,
+                        properties: {
+                          symbol: { type: 'string' },
+                          meaning: { type: 'string' },
+                          weight: {
+                            type: 'string',
+                            enum: ['high', 'medium', 'low'],
+                          },
+                        },
+                        required: ['symbol', 'meaning', 'weight'],
                       },
                     },
-                    required: ['symbol', 'meaning', 'weight'],
+                    lifeAreas: {
+                      type: 'array',
+                      minItems: 2,
+                      maxItems: 4,
+                      items: { type: 'string' },
+                    },
+                    recommendedKeywords: {
+                      type: 'array',
+                      minItems: 2,
+                      maxItems: 4,
+                      items: { type: 'string' },
+                    },
+                    actionTip: { type: 'string' },
+                    cautionNote: { type: 'string' },
+                    shareSnippet: { type: 'string' },
+                    disclaimer: { type: 'string' },
                   },
+                  required: [
+                    'headline',
+                    'overallMeaning',
+                    'emotionalTheme',
+                    'focusSummary',
+                    'reflectionQuestion',
+                    'keySymbols',
+                    'lifeAreas',
+                    'recommendedKeywords',
+                    'actionTip',
+                    'cautionNote',
+                    'shareSnippet',
+                    'disclaimer',
+                  ],
                 },
-                lifeAreas: {
-                  type: 'array',
-                  minItems: 2,
-                  maxItems: 4,
-                  items: { type: 'string' },
-                },
-                recommendedKeywords: {
-                  type: 'array',
-                  minItems: 2,
-                  maxItems: 4,
-                  items: { type: 'string' },
-                },
-                actionTip: { type: 'string' },
-                cautionNote: { type: 'string' },
-                shareSnippet: { type: 'string' },
-                disclaimer: { type: 'string' },
               },
-              required: [
-                'headline',
-                'overallMeaning',
-                'emotionalTheme',
-                'focusSummary',
-                'reflectionQuestion',
-                'keySymbols',
-                'lifeAreas',
-                'recommendedKeywords',
-                'actionTip',
-                'cautionNote',
-                'shareSnippet',
-                'disclaimer',
-              ],
             },
+          }),
+          signal: controller.signal,
+        })
+      : await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-goog-api-key': String(env.GEMINI_API_KEY),
+            },
+            body: JSON.stringify({
+              contents: [
+                {
+                  parts: [
+                    {
+                      text: [
+                        `너는 ${siteName}의 한국어 꿈해몽 에디터다.`,
+                        '길몽/흉몽으로 단정하지 말고 상징, 감정, 현실 맥락을 연결해서 설명한다.',
+                        '의료, 투자, 법률 조언처럼 들리지 않게 하고, 참고용이라는 점을 유지한다.',
+                        '반드시 JSON만 출력한다.',
+                        '',
+                        `꿈 내용: ${dream}`,
+                        `최근 감정: ${emotion}`,
+                        `꿈 직전 상황: ${sleepContext}`,
+                        `해석 깊이: ${analysisModeLabels[analysisMode]}`,
+                        `가장 보고 싶은 관점: ${focusAreaLabels[focusArea]}`,
+                        '해석은 실서비스형 도구처럼 구조적이고 재사용 가능하게 써라.',
+                        '관심 관점에 맞는 연결 요약과 다음에 스스로 적어볼 질문을 반드시 포함해라.',
+                        '추천 키워드는 검색/재방문용 짧은 표현 2~4개로 만들어라.',
+                        '다음 JSON 키를 반드시 모두 채워라: headline, overallMeaning, emotionalTheme, focusSummary, reflectionQuestion, keySymbols, lifeAreas, recommendedKeywords, actionTip, cautionNote, shareSnippet, disclaimer',
+                      ].join('\n'),
+                    },
+                  ],
+                },
+              ],
+              generationConfig: {
+                temperature: 0.8,
+                responseMimeType: 'application/json',
+              },
+            }),
+            signal: controller.signal,
           },
-        },
-      }),
-      signal: controller.signal,
-    })
+        )
   } catch (error) {
     if (error instanceof Error && error.name === 'AbortError') {
       return json({ error: '해석 생성 시간이 초과되었습니다. 잠시 후 다시 시도해 주세요.' }, 504)
@@ -301,10 +359,12 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     clearTimeout(timeoutId)
   }
 
-  let data: ChatCompletionResponse
+  let data: ChatCompletionResponse | GeminiGenerateContentResponse
 
   try {
-    data = await parseJsonResponse<ChatCompletionResponse>(upstreamResponse)
+    data = hasOpenAiKey
+      ? await parseJsonResponse<ChatCompletionResponse>(upstreamResponse)
+      : await parseJsonResponse<GeminiGenerateContentResponse>(upstreamResponse)
   } catch (error) {
     if (error instanceof UpstreamJsonParseError) {
       return json({ error: 'OpenAI 응답 형식을 해석하지 못했습니다.' }, 502)
@@ -322,13 +382,21 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     )
   }
 
-  const refusal = data.choices?.[0]?.message?.refusal
+  const refusal =
+    hasOpenAiKey && 'choices' in data ? data.choices?.[0]?.message?.refusal : undefined
 
   if (refusal) {
     return json({ error: `모델이 요청을 처리하지 않았습니다: ${refusal}` }, 502)
   }
 
-  const content = data.choices?.[0]?.message?.content
+  const content =
+    hasOpenAiKey && 'choices' in data
+      ? data.choices?.[0]?.message?.content
+      : 'candidates' in data
+        ? data.candidates?.[0]?.content?.parts
+            ?.map((part: { text?: string }) => part.text ?? '')
+            .join('\n')
+        : undefined
 
   if (!content) {
     return json({ error: 'OpenAI 응답 본문이 비어 있습니다.' }, 502)
