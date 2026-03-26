@@ -405,7 +405,7 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   let interpretation: DreamInterpretation
 
   try {
-    interpretation = JSON.parse(content) as DreamInterpretation
+    interpretation = normalizeInterpretation(JSON.parse(content))
   } catch {
     return json({ error: 'OpenAI JSON 응답을 해석하지 못했습니다.' }, 502)
   }
@@ -473,6 +473,83 @@ function buildFallbackInterpretation(input: {
     cautionNote: '이 해석은 자동 fallback 요약입니다. 실제 API 키가 연결되면 더 풍부한 문장형 해석으로 확장됩니다.',
     shareSnippet: `${focusLabel} 관점에서 보면, 이 꿈은 ${symbols[0]?.symbol ?? '반복 장면'}을 통해 지금 마음이 붙잡고 있는 과제를 보여줍니다.`,
     disclaimer: '참고용 해석이며 의료·법률·투자·진로 결정을 대신하지 않습니다.',
+  }
+}
+
+function normalizeInterpretation(value: unknown): DreamInterpretation {
+  const fallback = buildFallbackInterpretation({
+    analysisMode: 'balanced',
+    dream: '',
+    emotion: '평온',
+    focusArea: 'general',
+    siteName: '달빛해몽소',
+    sleepContext: '특별한 일 없음',
+  })
+
+  if (!value || typeof value !== 'object') {
+    return fallback
+  }
+
+  const raw = value as Record<string, unknown>
+  const keySymbols: DreamInterpretation['keySymbols'] = Array.isArray(raw.keySymbols)
+    ? raw.keySymbols
+        .filter((symbol): symbol is { symbol?: unknown; meaning?: unknown; weight?: unknown } => !!symbol && typeof symbol === 'object')
+        .map((symbol) => ({
+          symbol: typeof symbol.symbol === 'string' ? symbol.symbol : '상징',
+          meaning: typeof symbol.meaning === 'string' ? symbol.meaning : '현재 감정과 현실 맥락을 비추는 장면입니다.',
+          weight: (
+            symbol.weight === 'high' || symbol.weight === 'medium' || symbol.weight === 'low'
+              ? symbol.weight
+              : 'medium'
+          ) as 'high' | 'medium' | 'low',
+        }))
+        .slice(0, 4)
+    : fallback.keySymbols
+
+  const focusSummary =
+    typeof raw.focusSummary === 'string'
+      ? raw.focusSummary
+      : raw.focusSummary && typeof raw.focusSummary === 'object'
+        ? [
+            typeof (raw.focusSummary as Record<string, unknown>).perspective === 'string'
+              ? `관점: ${(raw.focusSummary as Record<string, unknown>).perspective}`
+              : '',
+            typeof (raw.focusSummary as Record<string, unknown>).connectionSummary === 'string'
+              ? String((raw.focusSummary as Record<string, unknown>).connectionSummary)
+              : '',
+          ]
+            .filter(Boolean)
+            .join(' ')
+        : fallback.focusSummary
+
+  const reflectionQuestion =
+    typeof raw.reflectionQuestion === 'string'
+      ? raw.reflectionQuestion
+      : Array.isArray((raw.focusSummary as Record<string, unknown> | undefined)?.reflectionQuestion)
+        ? ((raw.focusSummary as Record<string, unknown>).reflectionQuestion as unknown[])
+            .filter((item): item is string => typeof item === 'string')
+            .join(' ')
+        : fallback.reflectionQuestion
+
+  return {
+    headline: typeof raw.headline === 'string' ? raw.headline : fallback.headline,
+    overallMeaning:
+      typeof raw.overallMeaning === 'string' ? raw.overallMeaning : fallback.overallMeaning,
+    emotionalTheme:
+      typeof raw.emotionalTheme === 'string' ? raw.emotionalTheme : fallback.emotionalTheme,
+    focusSummary: focusSummary || fallback.focusSummary,
+    reflectionQuestion: reflectionQuestion || fallback.reflectionQuestion,
+    keySymbols: keySymbols.length > 0 ? keySymbols : fallback.keySymbols,
+    lifeAreas: Array.isArray(raw.lifeAreas)
+      ? raw.lifeAreas.filter((entry): entry is string => typeof entry === 'string').slice(0, 4)
+      : fallback.lifeAreas,
+    recommendedKeywords: Array.isArray(raw.recommendedKeywords)
+      ? raw.recommendedKeywords.filter((entry): entry is string => typeof entry === 'string').slice(0, 4)
+      : fallback.recommendedKeywords,
+    actionTip: typeof raw.actionTip === 'string' ? raw.actionTip : fallback.actionTip,
+    cautionNote: typeof raw.cautionNote === 'string' ? raw.cautionNote : fallback.cautionNote,
+    shareSnippet: typeof raw.shareSnippet === 'string' ? raw.shareSnippet : fallback.shareSnippet,
+    disclaimer: typeof raw.disclaimer === 'string' ? raw.disclaimer : fallback.disclaimer,
   }
 }
 
