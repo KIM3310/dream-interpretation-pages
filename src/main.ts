@@ -1515,7 +1515,7 @@ function getSelectedDepth() {
 }
 
 function setCheckedRadio(name: 'focusArea' | 'responseDepth', value: string) {
-  const target = ui.form.querySelector<HTMLInputElement>(`input[name="${name}"][value="${value}"]`)
+  const target = ui.form.querySelector<HTMLInputElement>(`input[name="${CSS.escape(name)}"][value="${CSS.escape(value)}"]`)
   if (target) {
     target.checked = true
   }
