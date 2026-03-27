@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="달빛해몽소의 개인정보 처리방침 안내입니다." />
+    <meta name="theme-color" content="#f7f2e8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>개인정보 처리방침 | 달빛해몽소</title>
+  </head>
+  <body class="subpage-body">
+    <main class="legal-page">
+      <header class="legal-header">
+        <a class="legal-brand" href="/">
+          <span class="brand-mark">月</span>
+          <span>
+            <strong>달빛해몽소</strong>
+            <small>Privacy policy</small>
+          </span>
+        </a>
+        <nav class="legal-nav" aria-label="보조 메뉴">
+          <a href="/">홈</a>
+          <a href="/about">소개</a>
+          <a href="/symbols">상징 모음</a>
+          <a href="/contact">문의</a>
+        </nav>
+      </header>
+
+      <section class="legal-hero">
+        <p class="eyebrow">Privacy</p>
+        <h1>입력한 꿈 내용은 응답 생성을 위해 외부 API로 전달될 수 있습니다.</h1>
+        <p>
+          이 MVP는 별도 회원가입과 데이터베이스를 두지 않지만, 사용자가 입력한 꿈 설명은 OpenAI API
+          호출을 위해 서버 함수에서 처리됩니다. 민감한 개인정보나 타인의 실명, 연락처, 계정 정보는
+          입력하지 않는 편이 안전합니다.
+        </p>
+      </section>
+
+      <section class="legal-grid">
+        <article class="legal-card">
+          <h2>수집 항목</h2>
+          <ul>
+            <li>사용자가 직접 입력한 꿈 내용</li>
+            <li>선택한 감정 상태와 꿈 직전 상황</li>
+            <li>기본적인 서비스 운영 로그가 있을 수 있음</li>
+          </ul>
+        </article>
+
+        <article class="legal-card">
+          <h2>이용 목적</h2>
+          <ul>
+            <li>꿈해몽 결과 생성</li>
+            <li>오류 대응 및 남용 방지</li>
+            <li>서비스 품질 개선</li>
+          </ul>
+        </article>
+
+        <article class="legal-card">
+          <h2>외부 처리자</h2>
+          <p>
+            OpenAI API가 응답 생성에 사용됩니다. Cloudflare Pages Functions는 요청을 수신하고 API를
+            중계하는 런타임입니다. 실제 운영 시에는 사용 중인 분석 도구와 광고 네트워크도 이 문서에
+            추가로 명시해야 합니다.
+          </p>
+        </article>
+      </section>
+
+      <section class="legal-card legal-content">
+        <h3>운영 전 체크</h3>
+        <ul>
+          <li>실제 도메인, 운영자 이름, 문의 이메일을 반영하세요.</li>
+          <li>Google AdSense, Analytics 등을 붙이면 해당 쿠키/추적 고지를 추가하세요.</li>
+          <li>법적 문구가 필요한 국가/지역이면 현지 기준에 맞춰 보강하세요.</li>
+        </ul>
+      </section>
+
+      <footer class="legal-footer">
+        <p>이 문서는 MVP 초안입니다. 실제 공개 전에는 운영 국가 기준에 맞는 문구로 보강해야 합니다.</p>
+        <nav class="legal-nav">
+          <a href="/">홈</a>
+          <a href="/about">소개</a>
+          <a href="/contact">문의</a>
+        </nav>
+      </footer>
+    </main>
+  </body>
+</html>
