@@ -102,3 +102,11 @@ npm run build
 - `public/ads.txt` 실제 퍼블리셔 값 반영
 - 결과 품질을 실 API 키(OpenAI 또는 Gemini)로 한 번 이상 확인
 - `npx wrangler pages deploy dist --project-name <your-project-name>` 실행
+
+## Cloud + AI Architecture
+
+This repository includes a neutral cloud and AI engineering blueprint that maps the current proof surface to runtime boundaries, data contracts, model-risk controls, deployment posture, and validation hooks.
+
+- [Cloud + AI architecture blueprint](docs/cloud-ai-architecture.md)
+- [Machine-readable architecture manifest](architecture/blueprint.json)
+- Validation command: `python3 scripts/validate_architecture_blueprint.py`
