@@ -4,6 +4,18 @@
 
 Cloudflare Pages에 올릴 수 있는 꿈해몽 사이트입니다. 프런트는 `Vite + Vanilla TypeScript`, 서버는 `Pages Functions`를 사용하고, AI API(OpenAI 또는 Google Gemini)는 서버측에서만 호출합니다. `OPENAI_API_KEY`가 설정되면 OpenAI를 사용하고, 그렇지 않으면 `GEMINI_API_KEY`로 Google Gemini를 사용합니다. 둘 다 없으면 내장 fallback 해석이 제공됩니다.
 
+## Product and Review Surface
+
+A consumer AI app that tests fast distribution, safe fallback behavior, and lightweight personalization on a free hosting stack.
+
+| Lens | Definition |
+|---|---|
+| Buyer or user | Consumer AI builders, content communities, and solo users who want low-friction creative interpretation. |
+| Commercial route | Freemium pages app with paid packs, creator templates, custom themes, or hosted history sync. |
+| Review signal | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
+| Safety boundary | Interpretations are entertainment/reflection content; user prompts need privacy controls and abuse-rate limits. |
+| Fast proof | Run the local build/functions path and verify fallback behavior without model-provider keys. |
+
 ## 포함된 것
 
 - 메인 랜딩 페이지와 꿈해몽 입력 폼
