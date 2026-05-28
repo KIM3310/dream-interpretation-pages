@@ -16,6 +16,13 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 | Safety boundary | Interpretations are entertainment/reflection content; user prompts need privacy controls and abuse-rate limits. |
 | Fast proof | Run the local build/functions path and verify fallback behavior without model-provider keys. |
 
+## Reviewer Fast Path
+
+- **First minute:** Submit one prompt without provider keys and confirm the deterministic fallback path is still useful.
+- **Local demo:** Run `npm install`, `npm run build`, and `npm run cf:dev`, then open `http://127.0.0.1:8788`.
+- **Verification:** Run `npm run verify`; use `/api/review-pack` to inspect abuse controls and model contracts.
+- **Commercial read:** This is a free-stack consumer AI funnel that can expand into paid packs, themes, and history sync.
+
 ## 포함된 것
 
 - 메인 랜딩 페이지와 꿈해몽 입력 폼
