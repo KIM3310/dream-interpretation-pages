@@ -23,6 +23,10 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 - **Verification:** Run `npm run verify`; use `/api/review-pack` to inspect abuse controls and model contracts.
 - **Commercial read:** This is a free-stack consumer AI funnel that can expand into paid packs, themes, and history sync.
 
+## Commercialization Playbook
+
+- [Monetization and GTM playbook](docs/monetization-playbook.md) maps the repository to buyer segments, offer ladder, pricing hypotheses, proof gates, and risk boundaries.
+
 ## 포함된 것
 
 - 메인 랜딩 페이지와 꿈해몽 입력 폼
