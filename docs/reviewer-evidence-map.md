@@ -2,62 +2,47 @@
 
 Updated: 2026-05-30
 
-Use this page as the short path through the repository. It keeps the review grounded in the code, docs, commands, and boundaries that are already present.
+This repository is now curated as supporting material. Review it only after the flagship enterprise AI, operations, security, data, and runtime reliability projects have established the main story.
 
 ## Summary
 
 | Field | Notes |
 |---|---|
+| Repository | `dream-interpretation-pages` |
+| Status | Archived supporting repository |
 | Lane | B2C consumer AI and ads funnel |
-| Core idea | Cloudflare Pages app with safe fallback, lightweight personalization, and monetizable content paths. |
 | Primary reader | Consumer AI users, content communities, and SEO-driven entertainment/reflection traffic. |
-| Stack | TypeScript/JavaScript, Cloudflare |
+| Why it moved back | Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B revenue story. |
+| Current successor | aix-pilot and doeon-kim-portfolio |
 
 ## Open First
 
-1. Start with the README fast path and architecture section.
-2. Open `docs/monetization-playbook.md` only when reviewing the product or service angle.
-3. Check the commands below before making claims about quality.
-4. Skim the CI workflows and fixture data before deeper implementation review.
-5. Read the boundaries section before presenting the project externally.
-
-## Checks
-
-| Purpose | Command |
-|---|---|
-| Full local gate | `npm run verify` |
-| Production build | `npm run build` |
-
-## CI
-
-- .github/workflows/architecture-blueprint.yml
-- .github/workflows/ci.yml
-- .github/workflows/dependency-review.yml
-- .github/workflows/repository-health.yml
-- .github/workflows/repository-surface.yml
-- .github/workflows/secret-scan.yml
+1. Start with the successor repositories named above.
+2. Use this repository only for optional domain breadth or historical product exploration.
+3. Check `docs/portfolio-fit.md` before presenting it externally.
+4. Keep the archived/supporting status visible in any resume, portfolio, or buyer conversation.
 
 ## Evidence
 
-- package scripts and web/runtime checks
-- edge deployment configuration
 - npm run verify passes
 - Fallback works without keys
 - Abuse controls are reviewable
 
 ## Commercial Notes
 
-| Possible offer | Working price assumption |
-|---|---|
-| Ad-supported content site | Ads + affiliate |
-| Paid interpretation packs | $3-$9 paid pack |
-| Theme/history sync subscription | $4-$8/month sync |
+| Possible offer | Working price assumption | Scope |
+|---|---|---|
+| Ad-supported content site | Ads + affiliate | Scoped after review. |
+| Paid interpretation packs | $3-$9 paid pack | Scoped after review. |
+| Theme/history sync subscription | $4-$8/month sync | Scoped after review. |
 
 ## Boundaries
 
 - Entertainment only
 - Privacy and abuse controls needed
 - AdSense requires original content depth
+- Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B revenue story.
+- Do not present this as a current flagship or maintained product surface.
 
 ## Useful Metrics
 

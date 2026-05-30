@@ -1,5 +1,10 @@
 # Dream Interpretation Pages
 
+> **Curated supporting repo**
+> This repository is kept as optional proof, but it no longer leads the portfolio.
+> Current front door: **aix-pilot and doeon-kim-portfolio**.
+> Reason: Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B revenue story.
+
 [![ci](https://github.com/KIM3310/dream-interpretation-pages/actions/workflows/ci.yml/badge.svg)](https://github.com/KIM3310/dream-interpretation-pages/actions/workflows/ci.yml)
 
 Cloudflare Pages에 올릴 수 있는 꿈해몽 사이트입니다. 프런트는 `Vite + Vanilla TypeScript`, 서버는 `Pages Functions`를 사용하고, AI API(OpenAI 또는 Google Gemini)는 서버측에서만 호출합니다. `OPENAI_API_KEY`가 설정되면 OpenAI를 사용하고, 그렇지 않으면 `GEMINI_API_KEY`로 Google Gemini를 사용합니다. 둘 다 없으면 내장 fallback 해석이 제공됩니다.
@@ -33,6 +38,7 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 - [Quality notes](docs/quality-gate.md) lists the local checks, CI surface, and release expectations for this repository.
 - [Revenue growth model](docs/revenue-growth-model.md) maps the project to an ethical revenue path, activation loop, pricing logic, and growth experiments.
 - [Enterprise readiness notes](docs/enterprise-readiness.md) outlines security, data, operations, integration, and handoff expectations.
+- [Portfolio fit](docs/portfolio-fit.md) explains why this repository is archived/supporting and where the current portfolio front door lives.
 
 ## 포함된 것
 
