@@ -25,7 +25,8 @@
     "check": "tsc -p tsconfig.json && tsc -p tsconfig.functions.json",
     "preview": "vite preview",
     "cf:dev": "npm run build && wrangler pages dev dist",
-    "verify": "npm run check && npm run build"
+    "test": "node scripts/verify_contracts.mjs",
+    "verify": "npm run check && npm test && npm run build"
   },
   "devDependencies": {
     "typescript": "~5.9.3",
