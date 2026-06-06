@@ -1,6 +1,6 @@
 # Service Architecture - dream-interpretation-pages
 
-This document defines the deployment and resource plan for turning this repository into a buyer-reviewable service. It intentionally avoids public public financial assumptions, public financial guesses, or contract assumptions.
+This document defines the deployment and resource plan for turning this repository into a buyer-reviewable service. It intentionally avoids public financial assumptions, public financial guesses, or contract assumptions.
 
 ## Commercial Role
 
@@ -42,6 +42,15 @@ Visitor or operator
 
 - analytics token
 - CMS token if used
+
+## Revenue Channel Architecture
+
+- **Primary channel:** B2C content, ads, and affiliate surfaces
+- **Monetization route:** SEO content surface with policy-safe ads or affiliate links after content governance is reviewed.
+- **Acquisition motion:** Search pages, short-form content, social proof, and portfolio links that clarify safety boundaries.
+- **Activation path:** Prioritize clear disclaimers, helpful content structure, analytics, and ad-policy checks before enabling ads.
+- **Margin control:** Keep hosting static, avoid paid backends until traffic justifies them, and separate reflective content from claims.
+- **Public boundary:** Keep revenue, pricing, and contract assumptions in private planning; this repository publishes service structure, resource needs, and technical proof only.
 
 ## Cost and Risk Controls
 
