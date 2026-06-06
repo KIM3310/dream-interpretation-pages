@@ -33,8 +33,8 @@ This repository is now curated as supporting material. Review it only after the 
 | Possible offer | Working scope assumption | Scope |
 |---|---|---|
 | Ad-supported content site | Ads + affiliate | Scoped after review. |
-| Paid interpretation packs | $3-$9 paid pack | Scoped after review. |
-| Theme/history sync subscription | $4-$8/month sync | Scoped after review. |
+| Paid interpretation packs | Scope after buyer intake | Scoped after review. |
+| Theme/history sync subscription | Scope after buyer intake | Scoped after review. |
 
 ## Boundaries
 

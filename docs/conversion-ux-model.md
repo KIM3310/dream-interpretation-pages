@@ -50,8 +50,8 @@ This note specializes the repository for service launch. It combines product str
 ## Conversion Path
 
 - Optional entry: Ad-supported content site (Ads + affiliate) when this archived proof exactly matches the buyer problem.
-- Revival step: Paid interpretation packs ($3-$9 paid pack) only after the active successor and support boundary are clear.
-- Longer-term path: Theme/history sync subscription ($4-$8/month sync) if the repository is refreshed and assigned an owner.
+- Revival step: Paid interpretation packs (scope after buyer intake) only after the active successor and support boundary are clear.
+- Longer-term path: Theme/history sync subscription (scope after buyer intake) if the repository is refreshed and assigned an owner.
 
 ## Scope Frame
 

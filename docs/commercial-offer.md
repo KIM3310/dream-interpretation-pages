@@ -21,8 +21,8 @@ This is the buyer-ready version of the repository. It turns the technical proof 
 | Offer | Scope assumption | Buyer-facing scope |
 |---|---|---|
 | Ad-supported content site | Ads + affiliate | Publish 50 original symbol pages |
-| Paid interpretation packs | $3-$9 paid pack | Add email capture |
-| Theme/history sync subscription | $4-$8/month sync | Test paid pack landing |
+| Paid interpretation packs | Scope after buyer intake | Add email capture |
+| Theme/history sync subscription | Scope after buyer intake | Test paid pack landing |
 
 ## Close Path
 
