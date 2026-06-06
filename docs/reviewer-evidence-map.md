@@ -30,7 +30,7 @@ This repository is now curated as supporting material. Review it only after the 
 
 ## Commercial Notes
 
-| Possible offer | Working price assumption | Scope |
+| Possible offer | Working scope assumption | Scope |
 |---|---|---|
 | Ad-supported content site | Ads + affiliate | Scoped after review. |
 | Paid interpretation packs | $3-$9 paid pack | Scoped after review. |

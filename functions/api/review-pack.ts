@@ -50,7 +50,7 @@ export const onRequestGet = async ({ env }: PagesContext) => {
     review_sequence: [
       "Read /api/review-pack before claiming the AI endpoint is public-ready.",
       "Verify abuse posture, then inspect /api/interpret with representative Korean input.",
-      "Review content disclaimers and symbolic framing before any monetization or public promotion.",
+      "Review content disclaimers and symbolic framing before any service launch or public promotion.",
     ],
     links: {
       review_pack: "/api/review-pack",
