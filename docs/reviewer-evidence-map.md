@@ -33,8 +33,8 @@ This repository is now curated as supporting material. Review it only after the 
 | Possible offer | Working scope assumption | Scope |
 |---|---|---|
 | Ad-supported content site | Ads + affiliate | Scoped after review. |
-| Paid interpretation packs | Scope after reviewer intake | Scoped after review. |
-| Theme/history sync subscription | Scope after reviewer intake | Scoped after review. |
+| Interpretation packs | Scope after reviewer intake | Scoped after review. |
+| Theme/history sync | Scope after reviewer intake | Scoped after review. |
 
 ## Boundaries
 
