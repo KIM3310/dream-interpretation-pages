@@ -8,7 +8,7 @@
 > **Curated supporting repo**
 > This repository is kept as optional proof, but it no longer leads the portfolio.
 > Current front door: **aix-pilot and doeon-kim-portfolio**.
-> Reason: Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B revenue story.
+> Reason: Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B technical story.
 
 [![ci](https://github.com/KIM3310/dream-interpretation-pages/actions/workflows/ci.yml/badge.svg)](https://github.com/KIM3310/dream-interpretation-pages/actions/workflows/ci.yml)
 
@@ -20,8 +20,8 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 
 | Lens | Definition |
 |---|---|
-| Buyer or user | Consumer AI builders, content communities, and solo users who want low-friction creative interpretation. |
-| Commercial route | Freemium pages app with paid packs, creator templates, custom themes, or hosted history sync. |
+| Audience | Consumer AI builders, content communities, and solo users who want low-friction creative interpretation. |
+| Review path | Validate the demo, README, architecture notes, and quality gate before deeper workflow review. |
 | Review signal | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
 | Safety boundary | Interpretations are entertainment/reflection content; user prompts need privacy controls and abuse-rate limits. |
 | Fast proof | Run the local build/functions path and verify fallback behavior without model-provider keys. |
@@ -31,20 +31,16 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 - **First minute:** Submit one prompt without provider keys and confirm the deterministic fallback path is still useful.
 - **Local demo:** Run `npm install`, `npm run build`, and `npm run cf:dev`, then open `http://127.0.0.1:8788`.
 - **Verification:** Run `npm run verify`; use `/api/review-pack` to inspect abuse controls and model contracts.
-- **Commercial read:** This is a free-stack consumer AI funnel that can expand into paid packs, themes, and history sync.
 
 ## Service Launch Playbook
 
-- [Service launch playbook](docs/service-launch-playbook.md) maps the repository to buyer segments, offer ladder, proof gates, proof gates, and risk boundaries.
+- [Service launch playbook](docs/service-launch-playbook.md) maps the repository to review audiences, offer ladder, proof gates, proof gates, and risk boundaries.
 
 ## Review Notes
 
 - [Review guide](docs/reviewer-evidence-map.md) summarizes the project angle, first files to inspect, verification commands, and known boundaries.
 - [Quality notes](docs/quality-gate.md) lists the local checks, CI surface, and release expectations for this repository.
-- [Service growth model](docs/service-growth-model.md) maps the project to an ethical service path, activation loop, scope logic, and growth experiments.
 - [Enterprise readiness notes](docs/enterprise-readiness.md) outlines security, data, operations, integration, and handoff expectations.
-- [Conversion UX model](docs/conversion-ux-model.md) maps the buyer path, behavioral design, UI/UX direction, scope frame, and ethical conversion guardrails.
-- [Commercial offer](docs/commercial-offer.md) packages the repository into a buyer-ready offer ladder, proof gate, outreach angle, and close path.
 - [Portfolio fit](docs/portfolio-fit.md) explains why this repository is archived/supporting and where the current portfolio front door lives.
 
 ## 포함된 것
@@ -58,7 +54,7 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 - `/api/interpret` Pages Function
 - `/api/review-pack` reviewer-facing abuse/control contract
 - 소개, 개인정보 처리방침, 문의, 상징 모음 정적 페이지
-- `wrangler.toml`, `.dev.vars.example`, `.env.example`, `ads.txt`, `_headers`
+- `wrangler.toml`, `.dev.vars.example`, `.env.example`, `_headers`
 
 ## 로컬 실행
 
@@ -97,16 +93,15 @@ npm run build
 npx wrangler pages deploy dist --project-name <your-project-name>
 ```
 
-## AdSense 전에 바꿔야 할 것
+## 공개 배포 전에 바꿔야 할 것
 
 - `contact.html`의 플레이스홀더 이메일
 - 실제 도메인 기준의 개인정보 처리 문구
-- `public/ads.txt`의 퍼블리셔 ID
 - 자체 편집 콘텐츠 추가
 - 운영자 정보와 브랜드 문구 구체화
 - 상징 문서와 검색 유입용 원본 글 축적
 
-AI가 만든 얇은 문서만으로는 AdSense 승인과 유지가 어렵습니다. 꿈 상징 사전, 운영자 소개, FAQ, 실제 문의 채널 같은 신뢰 신호를 함께 쌓는 편이 낫습니다.
+AI가 만든 얇은 문서만으로는 콘텐츠 품질 유지가 어렵습니다. 꿈 상징 사전, 운영자 소개, FAQ, 실제 문의 채널 같은 신뢰 신호를 함께 쌓는 편이 낫습니다.
 
 ## 보안 메모
 
@@ -114,7 +109,7 @@ AI가 만든 얇은 문서만으로는 AdSense 승인과 유지가 어렵습니�
 - API에는 분당 6회 기본 제한이 걸려 있고, `RATE_LIMITER` KV를 붙이면 좀 더 안정적인 서버측 제한이 가능합니다.
 - `/api/review-pack`에서 abuse posture, model contract, fail-closed 조건을 한 번에 검토할 수 있습니다.
 - 공개 배포에서는 `TURNSTILE_SECRET_KEY` 또는 `RATE_LIMITER`가 없으면 AI 엔드포인트가 fail-closed 되도록 되어 있습니다.
-- `public/_headers`에 기본 보안 헤더를 넣었습니다. 추후 Turnstile이나 AdSense를 확장하면 허용 도메인을 같이 조정해야 합니다.
+- `public/_headers`에 기본 보안 헤더를 넣었습니다. 추후 Turnstile이나 외부 스크립트를 확장하면 허용 도메인을 같이 조정해야 합니다.
 
 ## Turnstile 선택 적용
 
@@ -142,7 +137,6 @@ npm run build
 - `OPENAI_API_KEY` 또는 `GEMINI_API_KEY`를 Pages secret으로 등록
 - 필요하면 `TURNSTILE_SECRET_KEY`, `VITE_TURNSTILE_SITE_KEY` 연결
 - `contact.html`의 이메일과 운영 정보 교체
-- `public/ads.txt` 실제 퍼블리셔 값 반영
 - 결과 품질을 실 API 키(OpenAI 또는 Gemini)로 한 번 이상 확인
 - `npx wrangler pages deploy dist --project-name <your-project-name>` 실행
 
@@ -156,7 +150,7 @@ This repository includes a neutral cloud and AI engineering blueprint that maps 
 
 ## Enterprise Productization
 
-- [Product operating model](docs/product-operating-model.md) defines the buyer, paid wedge, trust boundary, operating checks, and service path for this repository.
+- [Product operating model](docs/product-operating-model.md) defines the reviewer, trust boundary, trust boundary, operating checks, and service path for this repository.
 
 ## Service Architecture
 
