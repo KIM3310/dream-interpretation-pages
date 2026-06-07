@@ -9,7 +9,7 @@ Updated: 2026-05-30
 | Status | Archived/supporting |
 | Why | Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B technical story. |
 | Show instead | aix-pilot and doeon-kim-portfolio |
-| Still useful for | Keep as optional Cloudflare/consumer funnel history, not as a flagship. |
+| Still useful for | Keep as optional Cloudflare/consumer content history, not as a flagship. |
 
 ## Operating Rule
 

@@ -10,7 +10,7 @@ These notes keep the repository available as supporting proof while preventing i
 |---|---|
 | Repository | `dream-interpretation-pages` |
 | Status | Archived supporting proof |
-| Portfolio role | Keep as optional Cloudflare/consumer funnel history, not as a flagship. |
+| Portfolio role | Keep as optional Cloudflare/consumer content history, not as a flagship. |
 | Current successor | aix-pilot and doeon-kim-portfolio |
 
 ## Presentation Boundary
