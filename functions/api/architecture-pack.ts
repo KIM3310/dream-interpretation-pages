@@ -30,9 +30,9 @@ export const onRequestGet = async ({ env }: PagesContext) => {
     status: hasApiKey ? "ok" : "degraded",
     service: "dream-interpretation-pages",
     generated_at: new Date().toISOString(),
-    readiness_contract: "dream-review-pack-v1",
+    readiness_contract: "dream-architecture-pack-v1",
     headline:
-      "Reviewer pack for the Cloudflare Pages dream interpreter: abuse posture, model contract, and content boundary in one route.",
+      "Architecture brief for the Cloudflare Pages dream interpreter: abuse posture, model contract, and content boundary in one route.",
     proof_bundle: {
       interpret_route: "/api/interpret",
       model: env.OPENAI_MODEL ?? "gpt-5.2",
@@ -48,12 +48,12 @@ export const onRequestGet = async ({ env }: PagesContext) => {
       "Interpretations are reference content and must not read like medical, legal, or investment advice.",
     ],
     review_sequence: [
-      "Read /api/review-pack before claiming the AI endpoint is public-ready.",
+      "Read /api/architecture-pack before claiming the AI endpoint is public-ready.",
       "Verify abuse posture, then inspect /api/interpret with representative Korean input.",
       "Review content disclaimers and symbolic framing before any service launch or public promotion.",
     ],
     links: {
-      review_pack: "/api/review-pack",
+      architecture_pack: "/api/architecture-pack",
       interpret: "/api/interpret",
     },
   })

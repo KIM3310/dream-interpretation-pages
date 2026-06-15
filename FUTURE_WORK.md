@@ -28,6 +28,6 @@
 ## Operations
 
 - Monitor OpenAI usage and rate-limit events after launch.
-- Review CSP when adding external scripts such as external analytics.
+- Architecture CSP when adding external scripts such as external analytics.
 - Keep Wrangler and related dev dependencies updated.
 - Add basic uptime/error monitoring once a real domain is connected.

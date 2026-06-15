@@ -3,7 +3,7 @@
 ## Live Demo
 
 - [Open the public GitHub Pages demo](https://kim3310.github.io/dream-interpretation-pages/)
-- Scope: credential-free, synthetic-data demo for reviewers and evaluators.
+- Scope: credential-free, synthetic-data demo for technical readers and evaluators.
 
 > **Curated supporting repo**
 > This repository is kept as optional proof, but it no longer leads the portfolio.
@@ -14,31 +14,31 @@
 
 Cloudflare Pages에 올릴 수 있는 꿈해몽 사이트입니다. 프런트는 `Vite + Vanilla TypeScript`, 서버는 `Pages Functions`를 사용하고, AI API(OpenAI 또는 Google Gemini)는 서버측에서만 호출합니다. `OPENAI_API_KEY`가 설정되면 OpenAI를 사용하고, 그렇지 않으면 `GEMINI_API_KEY`로 Google Gemini를 사용합니다. 둘 다 없으면 내장 fallback 해석이 제공됩니다.
 
-## Product and Review Surface
+## Product and System Surface
 
 A consumer AI app that tests fast distribution, safe fallback behavior, and lightweight personalization on a free hosting stack.
 
 | Lens | Definition |
 |---|---|
 | Audience | Consumer AI builders, content communities, and solo users who want low-friction creative interpretation. |
-| Review path | Validate the demo, README, architecture notes, and quality gate before deeper workflow review. |
-| Architecture signal | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
+| Architecture path | Validate the demo, README, architecture notes, and quality gate before deeper workflow architecture. |
+| System signal | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
 | Safety boundary | Interpretations are entertainment/reflection content; user prompts need privacy controls and abuse-rate limits. |
-| Fast proof | Run the local build/functions path and verify fallback behavior without model-provider keys. |
+| Fast path | Run the local build/functions path and verify fallback behavior without model-provider keys. |
 
-## Reviewer Fast Path
+## System Fast Path
 
 - **First minute:** Submit one prompt without provider keys and confirm the deterministic fallback path is still useful.
 - **Local demo:** Run `npm install`, `npm run build`, and `npm run cf:dev`, then open `http://127.0.0.1:8788`.
-- **Verification:** Run `npm run verify`; use `/api/review-pack` to inspect abuse controls and model contracts.
+- **Verification:** Run `npm run verify`; use `/api/architecture-pack` to inspect abuse controls and model contracts.
 
 ## Service Launch Playbook
 
-- [Service launch playbook](docs/service-launch-playbook.md) maps the repository to review audiences, proof gates, operating boundaries, and risk controls.
+- [Service launch playbook](docs/service-launch-playbook.md) maps the repository to architecture audiences, operating gates, operating boundaries, and risk controls.
 
-## Review Notes
+## Architecture Notes
 
-- [Review guide](docs/reviewer-evidence-map.md) summarizes the project angle, first files to inspect, verification commands, and known boundaries.
+- [Architecture guide](docs/architecture-evidence-map.md) summarizes the project angle, first files to inspect, runtime commands, and known boundaries.
 - [Quality notes](docs/quality-gate.md) lists the local checks, CI surface, and release expectations for this repository.
 - [Enterprise readiness notes](docs/enterprise-readiness.md) outlines security, data, operations, integration, and handoff expectations.
 - [Portfolio fit](docs/portfolio-fit.md) explains why this repository is archived/supporting and where the current portfolio front door lives.
@@ -52,7 +52,7 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 - 최근 리딩 JSON 내보내기
 - 요약 복사, 공유, 입력 재사용 액션
 - `/api/interpret` Pages Function
-- `/api/review-pack` reviewer-facing abuse/control contract
+- `/api/architecture-pack` architecture-facing abuse/control contract
 - 소개, 개인정보 처리방침, 문의, 상징 모음 정적 페이지
 - `wrangler.toml`, `.dev.vars.example`, `.env.example`, `_headers`
 
@@ -107,7 +107,7 @@ AI가 만든 얇은 문서만으로는 콘텐츠 품질 유지가 어렵습니�
 
 - `OPENAI_API_KEY`와 `GEMINI_API_KEY`는 `vars`가 아니라 secret으로 등록하세요.
 - API에는 분당 6회 기본 제한이 걸려 있고, `RATE_LIMITER` KV를 붙이면 좀 더 안정적인 서버측 제한이 가능합니다.
-- `/api/review-pack`에서 abuse posture, model contract, fail-closed 조건을 한 번에 검토할 수 있습니다.
+- `/api/architecture-pack`에서 abuse posture, model contract, fail-closed 조건을 한 번에 검토할 수 있습니다.
 - 공개 배포에서는 `TURNSTILE_SECRET_KEY` 또는 `RATE_LIMITER`가 없으면 AI 엔드포인트가 fail-closed 되도록 되어 있습니다.
 - `public/_headers`에 기본 보안 헤더를 넣었습니다. 추후 Turnstile이나 외부 스크립트를 확장하면 허용 도메인을 같이 조정해야 합니다.
 
@@ -150,7 +150,7 @@ This repository includes a neutral cloud and AI engineering blueprint that maps 
 
 ## Enterprise Productization
 
-- [Product operating model](docs/product-operating-model.md) defines the reviewer, trust boundary, trust boundary, operating checks, and service path for this repository.
+- [Product operating model](docs/product-operating-model.md) defines the technical reader, trust boundary, trust boundary, operating checks, and service path for this repository.
 
 ## System Architecture
 

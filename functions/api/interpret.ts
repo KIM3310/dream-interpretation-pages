@@ -91,7 +91,7 @@ const allowedContexts = new Set([
   '수면 부족',
 ])
 const allowedAnalysisModes = new Set(['quick', 'balanced', 'deep'])
-const allowedFocusAreas = new Set(['general', 'relationship', 'career', 'money', 'recovery'])
+const allowedFocusAreas = new Set(['general', 'relationship', 'technical portfolio', 'money', 'recovery'])
 const analysisModeLabels: Record<string, string> = {
   quick: '빠른 요약',
   balanced: '균형 해석',
@@ -100,14 +100,14 @@ const analysisModeLabels: Record<string, string> = {
 const focusAreaLabels: Record<string, string> = {
   general: '전체 흐름',
   relationship: '관계',
-  career: '일과 진로',
+  technical portfolio: '일과 진로',
   money: '돈과 기회',
   recovery: '내면 회복',
 }
 
 const fallbackSymbolCatalog = [
   { match: ['물', '바다', '강', '비'], symbol: '물', meaning: '감정의 흐름과 피로 누적, 컨디션 변화를 함께 비추는 상징', weight: 'high' as const },
-  { match: ['시험', '면접', '발표', '평가'], symbol: '평가 장면', meaning: '성과 압박, 준비 불안, 실수에 대한 민감함을 보여주는 상징', weight: 'high' as const },
+  { match: ['시험', '기술 설명', '발표', '평가'], symbol: '평가 장면', meaning: '성과 압박, 준비 불안, 실수에 대한 민감함을 보여주는 상징', weight: 'high' as const },
   { match: ['떨어', '추락', '미끄러'], symbol: '낙하', meaning: '통제감이 흔들리거나 기반이 불안정하다고 느끼는 상태를 반영하는 상징', weight: 'high' as const },
   { match: ['이빨', '치아'], symbol: '이빨', meaning: '체면, 관계 긴장, 말실수에 대한 불안을 드러내는 상징', weight: 'medium' as const },
   { match: ['돈', '지갑', '카드', '결제'], symbol: '돈/결제', meaning: '안정감, 기회, 손실 회피 심리가 동시에 얽힌 장면을 뜻하는 상징', weight: 'medium' as const },
@@ -435,7 +435,7 @@ function buildFallbackInterpretation(input: {
   }
 
   const lifeAreas =
-    input.focusArea === 'career'
+    input.focusArea === 'technical portfolio'
       ? ['일과 진로', '성과 압박', '자기효능감']
       : input.focusArea === 'relationship'
         ? ['관계', '대화', '경계 설정']
