@@ -22,7 +22,7 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 |---|---|
 | Audience | Consumer AI builders, content communities, and solo users who want low-friction creative interpretation. |
 | Review path | Validate the demo, README, architecture notes, and quality gate before deeper workflow review. |
-| Review signal | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
+| Architecture signal | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
 | Safety boundary | Interpretations are entertainment/reflection content; user prompts need privacy controls and abuse-rate limits. |
 | Fast proof | Run the local build/functions path and verify fallback behavior without model-provider keys. |
 
@@ -151,6 +151,10 @@ This repository includes a neutral cloud and AI engineering blueprint that maps 
 ## Enterprise Productization
 
 - [Product operating model](docs/product-operating-model.md) defines the reviewer, trust boundary, trust boundary, operating checks, and service path for this repository.
+
+## System Architecture
+
+- [System architecture](docs/system-architecture.md) maps the runtime boundary, data/control flow, cloud or local deployment surface, and operating assumptions for this repository.
 
 ## Service Architecture
 
