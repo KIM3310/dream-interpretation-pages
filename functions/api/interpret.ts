@@ -91,7 +91,7 @@ const allowedContexts = new Set([
   '수면 부족',
 ])
 const allowedAnalysisModes = new Set(['quick', 'balanced', 'deep'])
-const allowedFocusAreas = new Set(['general', 'relationship', 'technical portfolio', 'money', 'recovery'])
+const allowedFocusAreas = new Set(['general', 'relationship', 'career', 'money', 'recovery'])
 const analysisModeLabels: Record<string, string> = {
   quick: '빠른 요약',
   balanced: '균형 해석',
@@ -100,7 +100,7 @@ const analysisModeLabels: Record<string, string> = {
 const focusAreaLabels: Record<string, string> = {
   general: '전체 흐름',
   relationship: '관계',
-  technical portfolio: '일과 진로',
+  career: '일과 진로',
   money: '돈과 기회',
   recovery: '내면 회복',
 }
@@ -435,7 +435,7 @@ function buildFallbackInterpretation(input: {
   }
 
   const lifeAreas =
-    input.focusArea === 'technical portfolio'
+    input.focusArea === 'career'
       ? ['일과 진로', '성과 압박', '자기효능감']
       : input.focusArea === 'relationship'
         ? ['관계', '대화', '경계 설정']

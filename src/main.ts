@@ -1,7 +1,7 @@
 import './style.css'
 
 type SymbolWeight = 'high' | 'medium' | 'low'
-type FocusValue = 'general' | 'relationship' | 'technical portfolio' | 'money' | 'recovery'
+type FocusValue = 'general' | 'relationship' | 'career' | 'money' | 'recovery'
 type DepthValue = 'quick' | 'balanced' | 'deep'
 
 interface SymbolInsight {
@@ -52,7 +52,7 @@ const focusModes = [
     description: '가족, 연인, 친구, 직장 관계에 더 집중합니다.',
   },
   {
-    value: 'technical portfolio',
+    value: 'career',
     label: '일/진로',
     description: '성과 압박, 방향성, 결정 스트레스를 더 봅니다.',
   },

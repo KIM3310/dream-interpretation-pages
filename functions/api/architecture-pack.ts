@@ -47,7 +47,7 @@ export const onRequestGet = async ({ env }: PagesContext) => {
       "Public deployments fail closed when neither Turnstile nor KV-backed rate limiting is configured.",
       "Interpretations are reference content and must not read like medical, legal, or investment advice.",
     ],
-    review_sequence: [
+    architecture_sequence: [
       "Read /api/architecture-pack before claiming the AI endpoint is public-ready.",
       "Verify abuse posture, then inspect /api/interpret with representative Korean input.",
       "Review content disclaimers and symbolic framing before any service launch or public promotion.",

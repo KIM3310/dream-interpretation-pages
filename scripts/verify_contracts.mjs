@@ -5,7 +5,7 @@ const root = process.cwd()
 
 const files = {
   interpret: readFileSync(join(root, 'functions/api/interpret.ts'), 'utf8'),
-  reviewPack: readFileSync(join(root, 'functions/api/architecture-pack.ts'), 'utf8'),
+  architecturePack: readFileSync(join(root, 'functions/api/architecture-pack.ts'), 'utf8'),
   main: readFileSync(join(root, 'src/main.ts'), 'utf8'),
 }
 
@@ -31,10 +31,10 @@ assertAll('interpret route', files.interpret, [
   '꿈 내용은 최소 20자 이상 입력해 주세요.',
 ])
 
-assertAll('architecture pack route', files.reviewPack, [
+assertAll('architecture pack route', files.architecturePack, [
   'readiness_contract: "dream-architecture-pack-v1"',
   'public_fail_closed',
-  'review_sequence',
+  'architecture_sequence',
   'OpenAI is called only from Pages Functions',
   '/api/interpret',
 ])

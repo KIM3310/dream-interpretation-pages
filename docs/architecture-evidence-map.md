@@ -12,15 +12,15 @@ This repository is now curated as supporting material. Architecture it only afte
 | Status | Archived supporting repository |
 | Lane | B2C consumer AI reflection tool |
 | Primary reader | Consumer AI users, content communities, and SEO-driven entertainment/reflection traffic. |
-| Why it moved back | Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B technical story. |
+| Why it moved back | Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B architecture story. |
 | Current successor | aix-pilot and doeon-kim-portfolio |
 
 ## Open First
 
 1. Start with the successor repositories named above.
 2. Use this repository only for optional domain breadth or historical product exploration.
-3. Check `docs/portfolio-fit.md` before presenting it externally.
-4. Keep the archived/supporting status visible in any resume, portfolio, or technical reader conversation.
+3. Check `docs/repository-positioning.md` before presenting it externally.
+4. Keep the archived/supporting status visible in any external writeup or technical walkthrough.
 
 ## Evidence
 
@@ -41,7 +41,7 @@ This repository is now curated as supporting material. Architecture it only afte
 - Entertainment only
 - Privacy and abuse controls needed
 - Original content depth is required before broad public distribution
-- Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B technical story.
+- Consumer SEO and entertainment traffic are not aligned with the strongest technical or B2B architecture story.
 - Do not present this as a current flagship or maintained product surface.
 
 ## Useful Metrics
