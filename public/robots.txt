@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+
+Sitemap: https://kim3310.github.io/dream-interpretation-pages/sitemap.xml

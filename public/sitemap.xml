@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/</loc>
+    <loc>https://kim3310.github.io/dream-interpretation-pages/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>/about</loc>
+    <loc>https://kim3310.github.io/dream-interpretation-pages/service-offer.json</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>/privacy</loc>
-  </url>
-  <url>
-    <loc>/contact</loc>
-  </url>
-  <url>
-    <loc>/symbols</loc>
+    <loc>https://kim3310.github.io/dream-interpretation-pages/llms.txt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

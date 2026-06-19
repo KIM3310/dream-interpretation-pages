@@ -1,0 +1,73 @@
+{
+  "name": "Dream Interpretation Pages",
+  "slug": "dream-interpretation-pages",
+  "canonical_url": "https://kim3310.github.io/dream-interpretation-pages/",
+  "repository_url": "https://github.com/KIM3310/dream-interpretation-pages",
+  "architecture_url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/system-architecture.md",
+  "revenue_architecture_url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md",
+  "lead_capture_url": "mailto:ehdjs1351@gmail.com?subject=Dream%20Interpretation%20Pages%20private%20workspace&body=I%20am%20interested%20in%20premium%20saved%20journal%2C%20long-form%20reports%2C%20themes%2C%20and%20export%20packs%20for%20Dream%20Interpretation%20Pages.",
+  "productized_offer": "dream interpretation pages with private journaling, symbolic prompts, and shareable report cards",
+  "first_paid_sku": "premium saved journal, long-form reports, themes, and export packs",
+  "free_lead_magnet": "free interpretation page with limited daily reports",
+  "search_positioning": {
+    "primary_query": "Dream Interpretation Pages journaling symbolic prompts",
+    "secondary_queries": [
+      "Dream Interpretation Pages demo",
+      "Dream Interpretation Pages system architecture",
+      "Dream Interpretation Pages lifestyle tool",
+      "dream interpretation pages with private journaling, symbolic prompts, and shareable report cards service"
+    ],
+    "audience_intent": "Find a runnable demo, inspect the system architecture, and decide whether a private workspace or implementation package is useful."
+  },
+  "monetization_boundary": {
+    "free": "free interpretation page with limited daily reports",
+    "paid": "premium saved journal, long-form reports, themes, and export packs",
+    "metering_hooks": [
+      "workspace_id",
+      "plan",
+      "quota_day",
+      "export_count",
+      "lead_source"
+    ],
+    "cost_guardrails": [
+      "static first",
+      "edge functions",
+      "customer API keys",
+      "cached AI outputs",
+      "synthetic public data"
+    ]
+  },
+  "structured_data": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Dream Interpretation Pages",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web, serverless, and local development environments",
+    "url": "https://kim3310.github.io/dream-interpretation-pages/",
+    "codeRepository": "https://github.com/KIM3310/dream-interpretation-pages",
+    "description": "Dream Interpretation Pages: dream interpretation pages with private journaling, symbolic prompts, and shareable report cards. Free entry point: free interpretation page with limited daily reports. Paid path: premium.",
+    "creator": {
+      "@type": "Person",
+      "name": "KIM3310",
+      "url": "https://github.com/KIM3310"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "free interpretation page with limited daily reports",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://kim3310.github.io/dream-interpretation-pages/"
+      },
+      {
+        "@type": "Offer",
+        "name": "premium saved journal, long-form reports, themes, and export packs",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md"
+      }
+    ],
+    "isAccessibleForFree": true,
+    "keywords": "dream-interpretation-pages, Dream, Interpretation, Pages, dream, interpretation, pages, journaling, symbolic, prompts, shareable, cards, premium, saved, journal, long-form, themes, export, packs, page, limited, daily, tier"
+  }
+}

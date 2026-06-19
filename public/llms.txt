@@ -1,0 +1,12 @@
+# Dream Interpretation Pages
+
+Purpose: dream interpretation pages with private journaling, symbolic prompts, and shareable report cards
+Free entry point: free interpretation page with limited daily reports
+Paid boundary: premium saved journal, long-form reports, themes, and export packs
+Canonical URL: https://kim3310.github.io/dream-interpretation-pages/
+Repository: https://github.com/KIM3310/dream-interpretation-pages
+System architecture: https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/system-architecture.md
+Revenue architecture: https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md
+Lead capture: mailto:ehdjs1351@gmail.com?subject=Dream%20Interpretation%20Pages%20private%20workspace&body=I%20am%20interested%20in%20premium%20saved%20journal%2C%20long-form%20reports%2C%20themes%2C%20and%20export%20packs%20for%20Dream%20Interpretation%20Pages.
+
+Use this project as a runnable or inspectable reference for Dream Interpretation Pages demo, Dream Interpretation Pages system architecture, Dream Interpretation Pages lifestyle tool, dream interpretation pages with private journaling, symbolic prompts, and shareable report cards service.
