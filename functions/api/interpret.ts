@@ -3,6 +3,11 @@ interface Env {
   GEMINI_MODEL?: string
   OPENAI_API_KEY?: string
   OPENAI_MODEL?: string
+  OPENROUTER_API_KEY?: string
+  OPENROUTER_APP_TITLE?: string
+  OPENROUTER_BASE_URL?: string
+  OPENROUTER_HTTP_REFERER?: string
+  OPENROUTER_MODEL?: string
   SITE_NAME?: string
   TURNSTILE_SECRET_KEY?: string
   RATE_LIMITER?: KVNamespaceLike
@@ -81,6 +86,8 @@ class UpstreamJsonParseError extends Error {}
 
 const MAX_REQUESTS_PER_MINUTE = 6
 const RATE_LIMIT_WINDOW_SECONDS = 60
+const OPENROUTER_DEFAULT_BASE_URL = 'https://openrouter.ai/api/v1'
+const OPENROUTER_DEFAULT_MODEL = 'mistralai/mistral-small-2603'
 const localRateLimitStore = new Map<string, { count: number; resetAt: number }>()
 const allowedEmotions = new Set(['평온', '긴장', '지침', '기대', '혼란'])
 const allowedContexts = new Set([
@@ -103,6 +110,36 @@ const focusAreaLabels: Record<string, string> = {
   career: '일과 진로',
   money: '돈과 기회',
   recovery: '내면 회복',
+}
+
+function resolveOpenAiCompatible(env: Env, siteName: string) {
+  const openRouterApiKey = env.OPENROUTER_API_KEY?.trim()
+  const openAiApiKey = env.OPENAI_API_KEY?.trim()
+  const usesOpenRouter = Boolean(openRouterApiKey)
+  const apiKey = openRouterApiKey || openAiApiKey || ''
+  const baseUrl = usesOpenRouter
+    ? env.OPENROUTER_BASE_URL?.trim() || OPENROUTER_DEFAULT_BASE_URL
+    : 'https://api.openai.com/v1'
+  const headers: Record<string, string> = {
+    Authorization: `Bearer ${apiKey}`,
+    'Content-Type': 'application/json',
+  }
+
+  if (usesOpenRouter) {
+    headers['HTTP-Referer'] =
+      env.OPENROUTER_HTTP_REFERER?.trim() || 'https://dream-interpretation-pages.pages.dev'
+    headers['X-OpenRouter-Title'] = env.OPENROUTER_APP_TITLE?.trim() || siteName
+  }
+
+  return {
+    apiKey,
+    baseUrl,
+    headers,
+    model: usesOpenRouter
+      ? env.OPENROUTER_MODEL?.trim() || env.OPENAI_MODEL?.trim() || OPENROUTER_DEFAULT_MODEL
+      : env.OPENAI_MODEL?.trim() || 'gpt-5.2',
+    usesOpenRouter,
+  }
 }
 
 const fallbackSymbolCatalog = [
@@ -130,9 +167,11 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     )
   }
 
-  const hasOpenAiKey = Boolean(env.OPENAI_API_KEY)
+  const siteName = env.SITE_NAME ?? '달빛해몽소'
+  const openAiCompatible = resolveOpenAiCompatible(env, siteName)
+  const hasOpenAiCompatibleKey = Boolean(openAiCompatible.apiKey)
 
-  if (hasOpenAiKey && requiresDurableAbuseProtection(env)) {
+  if (hasOpenAiCompatibleKey && requiresDurableAbuseProtection(env)) {
     return json(
       {
         error: '공개 배포에서는 TURNSTILE_SECRET_KEY 또는 RATE_LIMITER 설정이 필요합니다.',
@@ -180,11 +219,9 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     }
   }
 
-  const model = env.OPENAI_MODEL ?? 'gpt-5.2'
   const geminiModel = env.GEMINI_MODEL ?? 'gemini-2.5-flash'
-  const siteName = env.SITE_NAME ?? '달빛해몽소'
 
-  if (!hasOpenAiKey && !env.GEMINI_API_KEY) {
+  if (!hasOpenAiCompatibleKey && !env.GEMINI_API_KEY) {
     return json(
       buildFallbackInterpretation({
         analysisMode,
@@ -204,15 +241,12 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   let upstreamResponse: Response
 
   try {
-    upstreamResponse = hasOpenAiKey
-      ? await fetch('https://api.openai.com/v1/chat/completions', {
+    upstreamResponse = hasOpenAiCompatibleKey
+      ? await fetch(`${openAiCompatible.baseUrl}/chat/completions`, {
           method: 'POST',
-          headers: {
-            Authorization: `Bearer ${env.OPENAI_API_KEY}`,
-            'Content-Type': 'application/json',
-          },
+          headers: openAiCompatible.headers,
           body: JSON.stringify({
-            model,
+            model: openAiCompatible.model,
             temperature: 0.8,
             messages: [
               {
@@ -362,7 +396,7 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   let data: ChatCompletionResponse | GeminiGenerateContentResponse
 
   try {
-    data = hasOpenAiKey
+    data = hasOpenAiCompatibleKey
       ? await parseJsonResponse<ChatCompletionResponse>(upstreamResponse)
       : await parseJsonResponse<GeminiGenerateContentResponse>(upstreamResponse)
   } catch (error) {
@@ -383,14 +417,14 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
   }
 
   const refusal =
-    hasOpenAiKey && 'choices' in data ? data.choices?.[0]?.message?.refusal : undefined
+    hasOpenAiCompatibleKey && 'choices' in data ? data.choices?.[0]?.message?.refusal : undefined
 
   if (refusal) {
     return json({ error: `모델이 요청을 처리하지 않았습니다: ${refusal}` }, 502)
   }
 
   const content =
-    hasOpenAiKey && 'choices' in data
+    hasOpenAiCompatibleKey && 'choices' in data
       ? data.choices?.[0]?.message?.content
       : 'candidates' in data
         ? data.candidates?.[0]?.content?.parts

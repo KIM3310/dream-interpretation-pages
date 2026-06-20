@@ -1,6 +1,8 @@
 interface Env {
   OPENAI_API_KEY?: string
   OPENAI_MODEL?: string
+  OPENROUTER_API_KEY?: string
+  OPENROUTER_MODEL?: string
   SITE_NAME?: string
   TURNSTILE_SECRET_KEY?: string
   RATE_LIMITER?: unknown
@@ -22,7 +24,8 @@ function json(payload: unknown, status = 200): Response {
 }
 
 export const onRequestGet = async ({ env }: PagesContext) => {
-  const hasApiKey = Boolean(env.OPENAI_API_KEY)
+  const hasOpenRouterKey = Boolean(env.OPENROUTER_API_KEY)
+  const hasApiKey = hasOpenRouterKey || Boolean(env.OPENAI_API_KEY)
   const hasTurnstile = Boolean(env.TURNSTILE_SECRET_KEY)
   const hasRateLimiter = Boolean(env.RATE_LIMITER)
 
@@ -35,15 +38,20 @@ export const onRequestGet = async ({ env }: PagesContext) => {
       "Architecture brief for the Cloudflare Pages dream interpreter: abuse posture, model contract, and content boundary in one route.",
     proof_bundle: {
       interpret_route: "/api/interpret",
-      model: env.OPENAI_MODEL ?? "gpt-5.2",
+      model: hasOpenRouterKey
+        ? env.OPENROUTER_MODEL ?? "mistralai/mistral-small-2603"
+        : env.OPENAI_MODEL ?? "gpt-5.2",
       site_name: env.SITE_NAME ?? "달빛해몽소",
-      openai_configured: hasApiKey,
+      llm_gateway: hasOpenRouterKey ? "openrouter" : "openai-compatible",
+      openai_configured: Boolean(env.OPENAI_API_KEY),
+      openrouter_configured: hasOpenRouterKey,
       turnstile_enabled: hasTurnstile,
       kv_rate_limiter_enabled: hasRateLimiter,
       public_fail_closed: !hasTurnstile && !hasRateLimiter,
     },
     trust_boundary: [
-      "OpenAI is called only from Pages Functions and never from the browser.",
+      "OpenAI is called only from Pages Functions; OpenRouter follows the same server-only boundary.",
+      "OpenRouter/OpenAI-compatible providers are called only from Pages Functions and never from the browser.",
       "Public deployments fail closed when neither Turnstile nor KV-backed rate limiting is configured.",
       "Interpretations are reference content and must not read like medical, legal, or investment advice.",
     ],
