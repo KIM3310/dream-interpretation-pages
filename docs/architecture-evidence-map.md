@@ -2,7 +2,7 @@
 
 Updated: 2026-05-30
 
-This repository is now curated as supporting material. Architecture it only after the flagship enterprise AI, operations, security, data, and runtime reliability projects have established the main story.
+This repository is now curated as supporting material. Review it only after the flagship enterprise AI, operations, security, data, and runtime reliability projects have established the main story.
 
 ## Summary
 
@@ -32,9 +32,9 @@ This repository is now curated as supporting material. Architecture it only afte
 
 | Possible offer | Working scope assumption | Scope |
 |---|---|---|
-| Ad-supported content site | Ads + affiliate | Scoped after architecture. |
-| Interpretation packs | Scope after product intake | Scoped after architecture. |
-| Theme/history sync | Scope after product intake | Scoped after architecture. |
+| Ad-supported content site | Ads + affiliate | Scoped after review. |
+| Interpretation packs | Scope after stakeholder intake | Scoped after review. |
+| Theme/history sync | Scope after stakeholder intake | Scoped after review. |
 
 ## Boundaries
 

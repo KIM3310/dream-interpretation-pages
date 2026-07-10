@@ -3,7 +3,7 @@
 ## Live Demo
 
 - [Open the public GitHub Pages demo](https://kim3310.github.io/dream-interpretation-pages/)
-- Scope: credential-free, synthetic-data demo for architecture inspection paths and evaluators.
+- Scope: credential-free, synthetic-data demo for technical review paths and evaluators.
 
 > **Curated supporting repo**
 > This repository is kept as optional proof, but it no longer leads the portfolio.
@@ -14,31 +14,31 @@
 
 Cloudflare Pages에 올릴 수 있는 꿈해몽 사이트입니다. 프런트는 `Vite + Vanilla TypeScript`, 서버는 `Pages Functions`를 사용하고, AI API(OpenAI 또는 Google Gemini)는 서버측에서만 호출합니다. `OPENAI_API_KEY`가 설정되면 OpenAI를 사용하고, 그렇지 않으면 `GEMINI_API_KEY`로 Google Gemini를 사용합니다. 둘 다 없으면 내장 fallback 해석이 제공됩니다.
 
-## Product and System Surface
+## System Overview
 
 A consumer AI app that tests fast distribution, safe fallback behavior, and lightweight personalization on a free hosting stack.
 
-| Lens | Definition |
+| Area | Details |
 |---|---|
-| Audience | Consumer AI builders, content communities, and solo users who want low-friction creative interpretation. |
-| Architecture path | Validate the demo, README, architecture notes, and quality gate before deeper workflow architecture. |
-| System signal | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
-| Safety boundary | Interpretations are entertainment/reflection content; user prompts need privacy controls and abuse-rate limits. |
-| Fast path | Run the local build/functions path and verify fallback behavior without model-provider keys. |
+| Users | Consumer AI builders, content communities, and solo users who want low-friction creative interpretation. |
+| Technical path | Validate the demo, README, architecture notes, and quality gate before deeper workflow review. |
+| System scope | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
+| Operating boundary | Interpretations are entertainment/reflection content; user prompts need privacy controls and abuse-rate limits. |
+| Evaluation path | Run the local build/functions path and verify fallback behavior without model-provider keys. |
 
-## System Fast Path
+## Evaluation Path
 
-- **First minute:** Submit one prompt without provider keys and confirm the deterministic fallback path is still useful.
+- **Start here:** Submit one prompt without provider keys and confirm the deterministic fallback path is still useful.
 - **Local demo:** Run `npm install`, `npm run build`, and `npm run cf:dev`, then open `http://127.0.0.1:8788`.
-- **Verification:** Run `npm run verify`; use `/api/architecture-pack` to inspect abuse controls and model contracts.
+- **Checks:** Run `npm run verify`; use `/api/architecture-pack` to inspect abuse controls and model contracts.
 
 ## Service Launch Playbook
 
-- [Service launch playbook](docs/service-launch-playbook.md) maps the repository to architecture audiences, operating gates, operating boundaries, and risk controls.
+- [Service launch playbook](docs/service-launch-playbook.md) maps the repository to its product scope, operating gates, operating boundaries, and risk controls.
 
 ## Architecture Notes
 
-- [Architecture guide](docs/architecture-evidence-map.md) summarizes the project angle, first files to inspect, runtime commands, and known boundaries.
+- [Architecture guide](docs/architecture-evidence-map.md) summarizes the system scope, first files to inspect, runtime commands, and known boundaries.
 - [Quality notes](docs/quality-gate.md) lists the local checks, CI surface, and release expectations for this repository.
 - [Enterprise readiness notes](docs/enterprise-readiness.md) outlines security, data, operations, integration, and handoff expectations.
 - [Repository positioning](docs/repository-positioning.md) explains why this repository is archived/supporting and where the current technical entry points live.
@@ -52,7 +52,7 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 - 최근 리딩 JSON 내보내기
 - 요약 복사, 공유, 입력 재사용 액션
 - `/api/interpret` Pages Function
-- `/api/architecture-pack` architecture-facing abuse/control contract
+- `/api/architecture-pack` review-facing abuse/control contract
 - 소개, 개인정보 처리방침, 문의, 상징 모음 정적 페이지
 - `wrangler.toml`, `.dev.vars.example`, `.env.example`, `_headers`
 
@@ -142,15 +142,13 @@ npm run build
 
 ## Cloud + AI Architecture
 
-This repository includes a neutral cloud and AI engineering blueprint that maps the current proof surface to runtime boundaries, data contracts, model-risk controls, deployment posture, and validation hooks.
-
 - [Cloud + AI architecture blueprint](docs/cloud-ai-architecture.md)
 - [Machine-readable architecture manifest](docs/architecture/blueprint.json)
 - Validation command: `python3 scripts/validate_architecture_blueprint.py`
 
 ## Enterprise Productization
 
-- [Product operating model](docs/product-operating-model.md) defines the architecture inspection, trust boundary, trust boundary, operating checks, and service path for this repository.
+- [Product operating model](docs/product-operating-model.md) defines the product scope, trust boundary, operating checks, and service path for this repository.
 
 ## System Architecture
 
