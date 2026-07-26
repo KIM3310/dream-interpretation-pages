@@ -1,27 +1,27 @@
 {
-  "name": "Dream Interpretation Pages",
+  "name": "달빛해몽소",
   "slug": "dream-interpretation-pages",
-  "canonical_url": "https://kim3310.github.io/dream-interpretation-pages/",
+  "canonical_url": "https://dream-interpretation-pages.pages.dev/",
   "repository_url": "https://github.com/KIM3310/dream-interpretation-pages",
   "architecture_url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/system-architecture.md",
   "revenue_architecture_url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md",
   "lead_capture_url": "https://github.com/KIM3310/dream-interpretation-pages/issues/new?template=service-inquiry.yml&title=Private+workspace+inquiry%3A+Dream+Interpretation+Pages",
-  "productized_offer": "dream interpretation pages with private journaling, symbolic prompts, and shareable report cards",
-  "first_paid_sku": "premium saved journal, long-form reports, themes, and export packs",
-  "free_lead_magnet": "free interpretation page with limited daily reports",
+  "productized_offer": "AI-assisted dream reflection with browser-local reading history and edited symbol guides",
+  "first_paid_sku": "optional supporter access and downloadable reflection packs after checkout activation",
+  "free_lead_magnet": "free dream reflection tool, symbol guide, and browser-local reading history",
   "search_positioning": {
-    "primary_query": "Dream Interpretation Pages journaling symbolic prompts",
+    "primary_query": "AI 꿈 해석 감정 기록",
     "secondary_queries": [
-      "Dream Interpretation Pages demo",
-      "Dream Interpretation Pages system architecture",
-      "Dream Interpretation Pages lifestyle tool",
-      "dream interpretation pages with private journaling, symbolic prompts, and shareable report cards service"
+      "꿈 해몽 상징 풀이",
+      "반복되는 꿈 기록",
+      "달빛해몽소",
+      "Dream Interpretation Pages"
     ],
     "audience_intent": "Find a runnable demo, inspect the system architecture, and decide whether a private workspace or implementation package is useful."
   },
   "monetization_boundary": {
-    "free": "free interpretation page with limited daily reports",
-    "paid": "premium saved journal, long-form reports, themes, and export packs",
+    "free": "free dream reflection tool, symbol guide, and browser-local reading history",
+    "paid": "optional supporter access and downloadable reflection packs after checkout activation",
     "metering_hooks": [
       "workspace_id",
       "plan",
@@ -39,13 +39,13 @@
   },
   "structured_data": {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Dream Interpretation Pages",
+    "@type": "WebApplication",
+    "name": "달빛해몽소",
     "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "Web, serverless, and local development environments",
-    "url": "https://kim3310.github.io/dream-interpretation-pages/",
+    "operatingSystem": "Web",
+    "url": "https://dream-interpretation-pages.pages.dev/",
     "codeRepository": "https://github.com/KIM3310/dream-interpretation-pages",
-    "description": "Dream Interpretation Pages: dream interpretation pages with private journaling, symbolic prompts, and shareable report cards. Free entry point: free interpretation page with limited daily reports. Paid path: premium.",
+    "description": "꿈의 장면과 감정, 최근 상황을 함께 기록하고 상징의 의미를 차분히 돌아보는 AI 꿈 해석 도구입니다.",
     "creator": {
       "@type": "Person",
       "name": "KIM3310",
@@ -54,20 +54,38 @@
     "offers": [
       {
         "@type": "Offer",
-        "name": "free interpretation page with limited daily reports",
+        "name": "free dream reflection tool, symbol guide, and browser-local reading history",
         "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "url": "https://kim3310.github.io/dream-interpretation-pages/"
-      },
-      {
-        "@type": "Offer",
-        "name": "premium saved journal, long-form reports, themes, and export packs",
-        "availability": "https://schema.org/LimitedAvailability",
-        "url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md"
+        "url": "https://dream-interpretation-pages.pages.dev/"
       }
     ],
     "isAccessibleForFree": true,
-    "keywords": "dream-interpretation-pages, Dream, Interpretation, Pages, dream, interpretation, pages, journaling, symbolic, prompts, shareable, cards, premium, saved, journal, long-form, themes, export, packs, page, limited, daily, tier"
+    "keywords": "AI 꿈 해석, 꿈 해몽, 감정 기록, 꿈 상징, 반복되는 꿈, 달빛해몽소"
+  },
+  "commerce": {
+    "gateway_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers",
+    "lane_id": "consumer-learning-supporter-lane",
+    "lane_name": "Consumer Learning Supporter Lane",
+    "billing_mode": "supporter",
+    "price_unit": "supporter bundle from USD 5/month or one-time theme and report packs from USD 20",
+    "fulfillment_kind": "supporter access, export or theme pack, classroom setup notes, and content publishing",
+    "risk_bucket": "consumer-guarded",
+    "checkout": {
+      "provider": "lemon-squeezy",
+      "status": "account-onboarding-required",
+      "fallback_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers"
+    },
+    "sponsorship": {
+      "provider": "github-sponsors",
+      "eligible": true,
+      "status": "account-onboarding-required"
+    },
+    "advertising": {
+      "provider": "google-adsense",
+      "eligible": true,
+      "status": "account-created-site-connection-required"
+    }
   }
 }

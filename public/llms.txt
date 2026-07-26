@@ -1,12 +1,13 @@
-# Dream Interpretation Pages
+# 달빛해몽소
 
-Purpose: dream interpretation pages with private journaling, symbolic prompts, and shareable report cards
-Free entry point: free interpretation page with limited daily reports
-Paid boundary: premium saved journal, long-form reports, themes, and export packs
-Canonical URL: https://kim3310.github.io/dream-interpretation-pages/
+Purpose: AI-assisted dream reflection with browser-local reading history and edited symbol guides
+Free entry point: free dream reflection tool, symbol guide, and browser-local reading history
+Paid boundary: optional supporter access and downloadable reflection packs after checkout activation
+Canonical URL: https://dream-interpretation-pages.pages.dev/
 Repository: https://github.com/KIM3310/dream-interpretation-pages
 System architecture: https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/system-architecture.md
 Revenue architecture: https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md
 Lead capture: https://github.com/KIM3310/dream-interpretation-pages/issues/new?template=service-inquiry.yml&title=Private+workspace+inquiry%3A+Dream+Interpretation+Pages
+Commercial route: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers
 
-Use this project as a runnable or inspectable reference for Dream Interpretation Pages demo, Dream Interpretation Pages system architecture, Dream Interpretation Pages lifestyle tool, dream interpretation pages with private journaling, symbolic prompts, and shareable report cards service.
+Use this service for dream reflection, dream-symbol context, browser-local reading history, and transparent system architecture.

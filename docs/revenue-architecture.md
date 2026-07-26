@@ -7,10 +7,10 @@ This document turns the repository architecture into a zero-to-low-cost service 
 | Layer | Decision |
 | --- | --- |
 | Target buyer / user | consumer wellness user or content operator needing a lightweight reflective AI experience |
-| Productized offer | dream interpretation pages with private journaling, symbolic prompts, and shareable report cards |
-| First paid SKU | premium saved journal, long-form reports, themes, and export packs |
-| Free lead magnet | free interpretation page with limited daily reports |
-| Paid expansion | consumer subscription, report credits, and themed content bundles |
+| Productized offer | AI-assisted dream reflection with browser-local reading history and edited symbol guides |
+| First paid SKU | optional supporter access and downloadable reflection packs after checkout activation |
+| Free lead magnet | free dream reflection tool, symbol guide, and browser-local reading history |
+| Paid expansion | supporter access, downloadable reflection packs, and optional export themes |
 | Data / workflow moat | personal symbol history, anonymized theme clusters, report templates, and retention-friendly journal exports |
 
 ## Free-Tier-First Launch Stack

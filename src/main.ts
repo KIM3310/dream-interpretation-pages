@@ -137,12 +137,12 @@ const faqItems = [
   {
     question: '왜 최근 리딩을 저장하나요?',
     answer:
-      '비슷한 꿈이 반복되는지 비교해야 실서비스처럼 다시 찾아볼 이유가 생기기 때문입니다. 저장은 브라우저 로컬에서만 이뤄집니다.',
+      '비슷한 장면이나 감정이 반복되는지 비교할 수 있도록 저장합니다. 최근 리딩은 현재 브라우저에만 보관되며 언제든 직접 지울 수 있습니다.',
   },
   {
-    question: '서비스처럼 보이려면 무엇이 더 필요하나요?',
+    question: '꿈 내용은 어디에 저장되나요?',
     answer:
-      '폼 하나만으로는 부족합니다. 운영자 소개, 자체 해설 문서, 문의 채널, 정책 페이지를 함께 유지해야 합니다.',
+      '해석을 위해 입력한 내용은 서버로 전송되지만, 최근 리딩 목록은 현재 브라우저에만 저장됩니다. 공용 기기에서는 이용 후 기록을 지워주세요.',
   },
 ] as const
 
@@ -168,7 +168,7 @@ app.innerHTML = `
         <span class="brand-mark">月</span>
         <span>
           <strong>달빛해몽소</strong>
-          <small>Dream Reading Console</small>
+          <small>꿈 기록과 해석</small>
         </span>
       </a>
       <nav class="nav-links" aria-label="주요 메뉴">
@@ -184,11 +184,11 @@ app.innerHTML = `
     <main>
       <section class="hero reveal">
         <div class="hero-copy">
-          <p class="eyebrow">Dream Reading Console</p>
+          <p class="eyebrow">꿈 기록과 해석</p>
           <h1>꿈의 장면을 적고,<br />어떤 관점으로 읽을지 선택하세요.</h1>
           <p class="hero-text">
-            단순 길몽/흉몽 카드가 아니라, 입력 품질 가이드, 최근 리딩 저장, 결과 재사용까지
-            갖춘 실서비스형 꿈해몽 도구로 구조를 끌어올렸습니다.
+            꿈의 장면과 감정, 최근 상황을 함께 기록하고 여러 관점에서 차분히 읽어보세요.
+            최근 리딩은 현재 브라우저에 저장되어 반복되는 패턴을 비교할 수 있습니다.
           </p>
           <div class="hero-actions">
             <a class="button-primary" href="#analyzer">지금 해몽하기</a>
@@ -212,7 +212,7 @@ app.innerHTML = `
 
         <aside class="hero-panel">
           <div class="panel panel-feature">
-            <p class="panel-label">서비스 감각으로 바꾼 포인트</p>
+            <p class="panel-label">리딩에 포함되는 기능</p>
             <ul class="check-list">
               <li>입력 품질 점수와 체크리스트</li>
               <li>관계/일/돈/회복 같은 해석 모드</li>
@@ -221,49 +221,49 @@ app.innerHTML = `
             </ul>
           </div>
           <div class="panel service-note">
-            <span>운영 메모</span>
-            <strong>재방문 이유가 먼저입니다.</strong>
-            <p>저장된 리딩, 자체 상징 문서, 신뢰 페이지가 있어야 “한 번 보고 끝”나는 도구에서 벗어납니다.</p>
+            <span>기록 팁</span>
+            <strong>반복되는 장면을 비교해보세요.</strong>
+            <p>최근 리딩과 상징 기록을 함께 보면 감정이나 상황의 변화를 더 쉽게 돌아볼 수 있습니다.</p>
           </div>
         </aside>
       </section>
 
       <section class="service-strip reveal" aria-label="서비스 특징">
         <article class="signal-card">
-          <span>Local state</span>
+          <span>브라우저 저장</span>
           <strong>리딩 저장</strong>
           <p>DB 없이 브라우저 로컬에 최근 해석을 저장해서 다시 불러올 수 있습니다.</p>
         </article>
         <article class="signal-card">
-          <span>Guided input</span>
+          <span>입력 안내</span>
           <strong>입력 품질 가이드</strong>
-          <p>글자 수, 맥락 밀도, 감정 표현 유무를 실시간으로 보여줘 결과 품질을 끌어올립니다.</p>
+          <p>글자 수, 맥락, 감정 표현이 충분한지 실시간으로 확인할 수 있습니다.</p>
         </article>
         <article class="signal-card">
-          <span>Service-grade result</span>
+          <span>결과 활용</span>
           <strong>복사/재사용</strong>
-          <p>결과를 바로 복사하고, 이전 입력을 불러와 다시 읽을 수 있게 만들었습니다.</p>
+          <p>결과를 복사하거나 이전 입력을 불러와 달라진 맥락으로 다시 읽을 수 있습니다.</p>
         </article>
       </section>
 
       <section class="insight-board reveal" aria-label="누적 인사이트">
         <article class="insight-card">
-          <span>Archive</span>
+          <span>누적 기록</span>
           <strong id="dashboard-total">0회</strong>
           <p>이 브라우저에 쌓인 누적 리딩 수</p>
         </article>
         <article class="insight-card">
-          <span>Dominant Focus</span>
+          <span>자주 선택한 관점</span>
           <strong id="dashboard-focus">아직 없음</strong>
           <p>가장 자주 선택한 해석 포커스</p>
         </article>
         <article class="insight-card">
-          <span>Recurring Symbol</span>
+          <span>반복 상징</span>
           <strong id="dashboard-symbol">기록 대기 중</strong>
           <p>최근 리딩에서 가장 자주 나온 상징</p>
         </article>
         <article class="insight-card">
-          <span>Rhythm</span>
+          <span>기록 흐름</span>
           <strong id="dashboard-rhythm">첫 리딩 준비</strong>
           <p>최근 사용 흐름과 재방문 감각</p>
         </article>
@@ -271,9 +271,9 @@ app.innerHTML = `
 
       <section id="analyzer" class="analyzer-section reveal">
         <div class="section-heading">
-          <p class="eyebrow">Dream Analyzer</p>
-          <h2>입력부터 결과까지 “다시 쓰고 싶은 서비스”처럼 설계한 해몽 흐름</h2>
-          <p>꿈 장면, 감정, 해석 관점을 함께 받도록 바꿔서 결과가 더 도구답게 나오도록 했습니다.</p>
+          <p class="eyebrow">꿈 해석</p>
+          <h2>꿈의 장면부터 돌아볼 질문까지 한 흐름으로</h2>
+          <p>꿈속 장면, 당시 감정, 최근 상황, 해석 관점을 함께 적으면 더 구체적인 리딩을 받을 수 있습니다.</p>
         </div>
 
         <div class="analyzer-grid analyzer-grid-upgraded">
@@ -418,7 +418,7 @@ app.innerHTML = `
             <div class="panel pipeline-panel">
               <div class="panel-header">
                 <div>
-                  <p class="eyebrow">Live Pipeline</p>
+                  <p class="eyebrow">해석 진행</p>
                   <h3>지금 어떤 단계인지</h3>
                 </div>
               </div>
@@ -442,7 +442,7 @@ app.innerHTML = `
             <section id="result-section" class="panel result-section result-section-upgraded" hidden aria-live="polite">
               <div class="result-header">
                 <div>
-                  <p class="eyebrow">AI Interpretation</p>
+                  <p class="eyebrow">해석 결과</p>
                   <h3 id="result-headline">해석 결과</h3>
                 </div>
                 <div class="result-meta-block">
@@ -461,7 +461,7 @@ app.innerHTML = `
             <section id="history-board" class="panel history-panel">
               <div class="panel-header">
                 <div>
-                  <p class="eyebrow">Recent Readings</p>
+                  <p class="eyebrow">최근 기록</p>
                   <h3>최근 저장한 리딩</h3>
                 </div>
                 <div class="history-panel-actions">
@@ -493,8 +493,8 @@ app.innerHTML = `
 
       <section class="content-band reveal">
         <div class="section-heading narrow">
-          <p class="eyebrow">Use Cases</p>
-          <h2>실제 서비스처럼 다시 들어오게 만드는 사용 맥락</h2>
+          <p class="eyebrow">활용 예시</p>
+          <h2>이럴 때 꿈 기록을 활용해보세요</h2>
         </div>
         <div class="use-grid">
           ${useCases
@@ -512,8 +512,8 @@ app.innerHTML = `
 
       <section class="content-band reveal">
         <div class="section-heading narrow">
-          <p class="eyebrow">Popular Dreams</p>
-          <h2>검색 유입용이면서도 실제로 도움이 되는 기본 상징 콘텐츠</h2>
+          <p class="eyebrow">자주 찾는 꿈</p>
+          <h2>자주 등장하는 상징을 감정과 함께 살펴보세요</h2>
         </div>
         <div class="card-grid">
           ${popularDreams
@@ -531,29 +531,29 @@ app.innerHTML = `
 
       <section class="trust-section reveal">
         <div class="section-heading narrow">
-          <p class="eyebrow">Trust Layer</p>
-          <h2>실서비스처럼 보이게 만드는 운영 신호</h2>
+          <p class="eyebrow">개인정보 보호</p>
+          <h2>개인정보를 덜 남기는 구조</h2>
         </div>
         <div class="trust-grid">
           <article class="panel trust-card">
-            <h3>서버측 OpenAI 호출</h3>
-            <p>키는 클라이언트에 노출되지 않고, Pages Functions에서만 호출됩니다.</p>
+            <h3>API 키 보호</h3>
+            <p>모델 API 키는 브라우저에 노출하지 않고 서버 함수에서만 사용합니다.</p>
           </article>
           <article class="panel trust-card">
-            <h3>로컬 저장 기반 재방문</h3>
-            <p>DB 없이도 최근 리딩을 다시 불러와 비교할 수 있게 했습니다.</p>
+            <h3>브라우저 로컬 기록</h3>
+            <p>최근 리딩은 별도 계정 없이 현재 브라우저에서만 다시 불러옵니다.</p>
           </article>
           <article class="panel trust-card">
-            <h3>신뢰 레이어 우선</h3>
-            <p>실제 운영자 정보, 문의 채널, 정책 페이지를 먼저 깔아둡니다.</p>
+            <h3>참고 도구의 경계</h3>
+            <p>결과는 자기 성찰을 돕는 참고 자료이며 의료나 중요한 결정을 대신하지 않습니다.</p>
           </article>
         </div>
       </section>
 
       <section class="faq-section reveal">
         <div class="section-heading narrow">
-          <p class="eyebrow">FAQ</p>
-          <h2>운영 전에 자주 막히는 지점</h2>
+          <p class="eyebrow">자주 묻는 질문</p>
+          <h2>이용 전에 알아둘 점</h2>
         </div>
         <div class="faq-list">
           ${faqItems
@@ -573,7 +573,7 @@ app.innerHTML = `
     <footer class="site-footer reveal">
       <div>
         <strong>달빛해몽소</strong>
-        <p>입력 품질 가이드, 최근 리딩 저장, 보안 기본값까지 넣은 꿈해몽 마이크로서비스 프로토타입.</p>
+        <p>꿈의 장면과 감정을 기록하고 반복되는 패턴을 차분히 돌아보는 해몽 도구입니다.</p>
       </div>
       <nav class="footer-links" aria-label="바닥글 메뉴">
         <a href="/about">소개</a>
@@ -923,7 +923,7 @@ function updateComposerState() {
   ui.qualityScore.textContent = `${score}점`
   ui.scoreFill.style.width = `${score}%`
   ui.qualityCaption.textContent =
-    score >= 80 ? '실서비스 수준으로 입력이 잘 잡혔습니다.' : score >= 55 ? '맥락은 보이지만 장면과 감정을 조금 더 보강해보세요.' : '장소, 인물, 마지막 감정을 조금 더 구체적으로 적는 편이 좋습니다.'
+    score >= 80 ? '상세한 해석에 충분한 맥락이 담겼습니다.' : score >= 55 ? '맥락은 보이지만 장면과 감정을 조금 더 보강해보세요.' : '장소, 인물, 마지막 감정을 조금 더 구체적으로 적는 편이 좋습니다.'
   ui.activeFocusLabel.textContent = focusLabel
 
   updateChecklistItem(ui.checklistLength, hasLength)

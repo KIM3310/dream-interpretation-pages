@@ -9,15 +9,16 @@ This repository now exposes a search-readable service surface in addition to the
 | Machine-readable offer | [docs/service-offer.json](./service-offer.json) |
 | Revenue architecture | [docs/revenue-architecture.md](./revenue-architecture.md) |
 | System architecture | [docs/system-architecture.md](./system-architecture.md) |
-| Public canonical URL | https://kim3310.github.io/dream-interpretation-pages/ |
+| Public canonical URL | https://dream-interpretation-pages.pages.dev/ |
 | Lead capture URL | https://github.com/KIM3310/dream-interpretation-pages/issues/new?template=service-inquiry.yml&title=Private+workspace+inquiry%3A+Dream+Interpretation+Pages |
+| Commercial route | https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers |
 
 ## Search Positioning
 
 - Primary query: Dream Interpretation Pages journaling symbolic prompts
 - Secondary queries: Dream Interpretation Pages demo; Dream Interpretation Pages system architecture; Dream Interpretation Pages lifestyle tool; dream interpretation pages with private journaling, symbolic prompts, and shareable report cards service
-- Public entry point: free interpretation page with limited daily reports
-- Paid boundary: premium saved journal, long-form reports, themes, and export packs
+- Public entry point: free dream reflection tool, symbol guide, and browser-local reading history
+- Paid boundary: optional supporter access and downloadable reflection packs after checkout activation
 
 ## Conversion Boundary
 

@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-- [Open the public GitHub Pages demo](https://kim3310.github.io/dream-interpretation-pages/)
+- [Open the production service](https://dream-interpretation-pages.pages.dev/)
 - Scope: credential-free, synthetic-data demo for technical review paths and evaluators.
 
 > **Curated supporting repo**
@@ -162,10 +162,11 @@ npm run build
 
 ## Search And Service Surface
 
-- Public entry: free interpretation page with limited daily reports
-- Paid boundary: premium saved journal, long-form reports, themes, and export packs
-- Canonical URL: https://kim3310.github.io/dream-interpretation-pages/
+- Public entry: free dream reflection tool, symbol guide, and browser-local reading history
+- Paid boundary: optional supporter access and downloadable reflection packs after checkout activation
+- Canonical URL: https://dream-interpretation-pages.pages.dev/
 - Lead capture: https://github.com/KIM3310/dream-interpretation-pages/issues/new?template=service-inquiry.yml&title=Private+workspace+inquiry%3A+Dream+Interpretation+Pages
+- Commercial route: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers
 - Machine-readable offer: [docs/service-offer.json](docs/service-offer.json)
 - Search growth implementation: [docs/search-growth-implementation.md](docs/search-growth-implementation.md)
 - Revenue architecture: [docs/revenue-architecture.md](docs/revenue-architecture.md)

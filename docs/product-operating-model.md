@@ -2,8 +2,8 @@
 
 ## Public Demo
 
-- URL: https://kim3310.github.io/dream-interpretation-pages/
-- Scope: credential-free synthetic demo surface for quick technical review.
+- URL: https://dream-interpretation-pages.pages.dev/
+- Scope: public dream-reflection service with browser-local history and edited symbol guides.
 
 Repository: `dream-interpretation-pages`
 Last reviewed: 2026-06-03 KST
