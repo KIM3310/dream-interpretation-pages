@@ -18,6 +18,7 @@ const files = {
   consentLogoSvg: readFileSync(join(root, 'public/consent-logo.svg'), 'utf8'),
   consentLogoPng: readFileSync(join(root, 'public/consent-logo.png')),
   searchConsoleVerification: readFileSync(join(root, 'public/google6acd7e6449ca4477.html'), 'utf8'),
+  searchConsoleRoute: readFileSync(join(root, 'functions/google6acd7e6449ca4477.html.ts'), 'utf8'),
   interpret: readFileSync(join(root, 'functions/api/interpret.ts'), 'utf8'),
   architecturePack: readFileSync(join(root, 'functions/api/architecture-pack.ts'), 'utf8'),
   main: readFileSync(join(root, 'src/main.ts'), 'utf8'),
@@ -70,6 +71,10 @@ assertEquals(
   files.searchConsoleVerification.trim(),
   'google-site-verification: google6acd7e6449ca4477.html',
 )
+assertAll('Search Console exact route', files.searchConsoleRoute, [
+  'google-site-verification: google6acd7e6449ca4477.html',
+  '"Content-Type": "text/plain; charset=utf-8"',
+])
 assertEquals('AdSense eligibility', docsServiceOffer.commerce.advertising.eligible, true)
 assertEquals(
   'AdSense activation status',
