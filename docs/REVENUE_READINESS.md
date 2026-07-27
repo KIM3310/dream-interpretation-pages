@@ -24,8 +24,10 @@ Clarify the buyer problem, package the demo, and add one clear contact or pilot 
 - Public publisher ID: `pub-4973160293737562`.
 - Public AdSense client ID: `ca-pub-4973160293737562`.
 - These IDs are public account identifiers for site verification and ad script loading; they are not secrets and must not be moved into `.env` files.
-- The site uses the AdSense Auto Ads script consistently on every HTML entry point. Auto Ads should be enabled from the AdSense dashboard after Google approves the site.
+- `dream-interpretation-pages.pages.dev` is connected, ownership verification passed, and Google site review is pending.
+- The AdSense loader is restricted to `/`, `/about`, and `/symbols`. Auto Ads should be enabled from the AdSense dashboard only after Google approves the site.
 - Do not add manual ad units or invented ad slot IDs before approval.
 - `ads.txt` must contain exactly: `google.com, pub-4973160293737562, DIRECT, f08c47fec0942fa0`.
-- For EEA, UK, and Swiss traffic, enable Google AdSense **Privacy & Messaging** in the AdSense dashboard and publish the Google CMP consent message before serving personalized ads.
-- content publishing cadence
+- The Google AdSense **Privacy & Messaging** CMP for EEA, UK, and Swiss traffic is published with consent, refusal, and preference-management choices.
+- The US state opt-out message targets all current and future supported states and is saved as a draft. Publish it after uploading `public/consent-logo.png` as the AdSense site logo.
+- AdSense has not exposed a payment-method form at the current zero balance. Add the payout bank account in the dashboard when Google unlocks that step.

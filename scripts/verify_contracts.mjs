@@ -15,6 +15,8 @@ const files = {
   revenueReadiness: readFileSync(join(root, 'docs/REVENUE_READINESS.md'), 'utf8'),
   docsServiceOffer: readFileSync(join(root, 'docs/service-offer.json'), 'utf8'),
   publicServiceOffer: readFileSync(join(root, 'public/service-offer.json'), 'utf8'),
+  consentLogoSvg: readFileSync(join(root, 'public/consent-logo.svg'), 'utf8'),
+  consentLogoPng: readFileSync(join(root, 'public/consent-logo.png')),
   interpret: readFileSync(join(root, 'functions/api/interpret.ts'), 'utf8'),
   architecturePack: readFileSync(join(root, 'functions/api/architecture-pack.ts'), 'utf8'),
   main: readFileSync(join(root, 'src/main.ts'), 'utf8'),
@@ -57,11 +59,16 @@ assertEquals('service-offer copies', JSON.stringify(publicServiceOffer), JSON.st
 assertEquals('service-offer canonical URL', docsServiceOffer.canonical_url, canonicalUrl)
 assertEquals('structured-data canonical URL', docsServiceOffer.structured_data.url, canonicalUrl)
 assertEquals('free structured-data offer price', docsServiceOffer.structured_data.offers[0].price, '0')
+assertIncludes('AdSense consent logo', files.consentLogoSvg, 'viewBox="0 0 500 100"')
+assertEquals('AdSense consent logo PNG signature', files.consentLogoPng.subarray(1, 4).toString(), 'PNG')
+if (files.consentLogoPng.length > 150 * 1024) {
+  throw new Error(`AdSense consent logo exceeds 150 KB: ${files.consentLogoPng.length} bytes`)
+}
 assertEquals('AdSense eligibility', docsServiceOffer.commerce.advertising.eligible, true)
 assertEquals(
   'AdSense activation status',
   docsServiceOffer.commerce.advertising.status,
-  'account-created-site-connection-required',
+  'site-review-pending',
 )
 
 assertAll('index SEO', files.index, [

@@ -28,7 +28,9 @@ The AdSense publisher ID `pub-4973160293737562` and client ID `ca-pub-4973160293
 
 1. Deploy the site with the AdSense Auto Ads script and exact `ads.txt`.
 2. Confirm `https://<domain>/ads.txt` returns `google.com, pub-4973160293737562, DIRECT, f08c47fec0942fa0`.
-3. In Google AdSense, connect the domain and wait for site approval.
+3. The production domain is connected, ownership verification passed, and site review was requested. Wait for Google approval.
 4. After approval, enable Auto Ads in the AdSense dashboard. Do not create manual ad slots in code unless real slot IDs are issued later.
-5. For EEA, UK, and Swiss visitors, open AdSense **Privacy & Messaging**, create the GDPR consent message with Google's CMP, select this site, and publish it before serving personalized ads.
-6. Keep Auto Ads allowlisted to `/`, `/about`, and `/symbols`. The loader is intentionally absent from `/privacy`, `/contact`, and the GitHub Pages architecture demo.
+5. The Google AdSense **Privacy & Messaging** CMP for EEA, UK, and Swiss visitors is published with consent, refusal, and preference-management choices.
+6. The US state opt-out message is configured for all current and future supported states and saved as a draft. Upload `public/consent-logo.png` as the AdSense site logo, then publish the message.
+7. Keep Auto Ads allowlisted to `/`, `/about`, and `/symbols`. The loader is intentionally absent from `/privacy`, `/contact`, and the GitHub Pages architecture demo.
+8. Add payout details only in the AdSense dashboard when Google exposes the payment-method step; it is not currently available at the zero balance.

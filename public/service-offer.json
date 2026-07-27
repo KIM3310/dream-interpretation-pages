@@ -85,7 +85,7 @@
     "advertising": {
       "provider": "google-adsense",
       "eligible": true,
-      "status": "account-created-site-connection-required"
+      "status": "site-review-pending"
     }
   }
 }
