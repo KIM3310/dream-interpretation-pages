@@ -17,6 +17,7 @@ const files = {
   publicServiceOffer: readFileSync(join(root, 'public/service-offer.json'), 'utf8'),
   consentLogoSvg: readFileSync(join(root, 'public/consent-logo.svg'), 'utf8'),
   consentLogoPng: readFileSync(join(root, 'public/consent-logo.png')),
+  searchConsoleVerification: readFileSync(join(root, 'public/google6acd7e6449ca4477.html'), 'utf8'),
   interpret: readFileSync(join(root, 'functions/api/interpret.ts'), 'utf8'),
   architecturePack: readFileSync(join(root, 'functions/api/architecture-pack.ts'), 'utf8'),
   main: readFileSync(join(root, 'src/main.ts'), 'utf8'),
@@ -64,6 +65,11 @@ assertEquals('AdSense consent logo PNG signature', files.consentLogoPng.subarray
 if (files.consentLogoPng.length > 150 * 1024) {
   throw new Error(`AdSense consent logo exceeds 150 KB: ${files.consentLogoPng.length} bytes`)
 }
+assertEquals(
+  'Search Console verification file',
+  files.searchConsoleVerification.trim(),
+  'google-site-verification: google6acd7e6449ca4477.html',
+)
 assertEquals('AdSense eligibility', docsServiceOffer.commerce.advertising.eligible, true)
 assertEquals(
   'AdSense activation status',

@@ -31,3 +31,4 @@ Clarify the buyer problem, package the demo, and add one clear contact or pilot 
 - The Google AdSense **Privacy & Messaging** CMP for EEA, UK, and Swiss traffic is published with consent, refusal, and preference-management choices.
 - The US state opt-out message targets all current and future supported states and is saved as a draft. Publish it after uploading `public/consent-logo.png` as the AdSense site logo.
 - AdSense has not exposed a payment-method form at the current zero balance. Add the payout bank account in the dashboard when Google unlocks that step.
+- The Google Search Console URL-prefix property uses `public/google6acd7e6449ca4477.html` for persistent ownership verification.

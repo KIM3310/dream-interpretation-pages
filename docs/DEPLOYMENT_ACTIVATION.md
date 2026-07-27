@@ -34,3 +34,4 @@ The AdSense publisher ID `pub-4973160293737562` and client ID `ca-pub-4973160293
 6. The US state opt-out message is configured for all current and future supported states and saved as a draft. Upload `public/consent-logo.png` as the AdSense site logo, then publish the message.
 7. Keep Auto Ads allowlisted to `/`, `/about`, and `/symbols`. The loader is intentionally absent from `/privacy`, `/contact`, and the GitHub Pages architecture demo.
 8. Add payout details only in the AdSense dashboard when Google exposes the payment-method step; it is not currently available at the zero balance.
+9. Keep `public/google6acd7e6449ca4477.html` deployed so the Search Console URL-prefix property remains verified.
