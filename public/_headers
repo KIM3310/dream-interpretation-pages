@@ -4,3 +4,13 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
+# ADSENSE-PUBLICATION-CSP:START
+/guide.html
+  ! Content-Security-Policy
+
+/architecture.html
+  ! Content-Security-Policy
+
+/verification.html
+  ! Content-Security-Policy
+# ADSENSE-PUBLICATION-CSP:END

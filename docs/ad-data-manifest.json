@@ -6,7 +6,7 @@
   "audience": "consumer search visitors and lifestyle content readers",
   "public_resource": {
     "url": "https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-interpretation-pages/",
-    "live_demo": "https://kim3310.github.io/dream-interpretation-pages/",
+    "live_demo": "https://dream-interpretation-pages.pages.dev/",
     "readiness_checklist": [
       "Architecture Summary",
       "Runtime And Data Flow",

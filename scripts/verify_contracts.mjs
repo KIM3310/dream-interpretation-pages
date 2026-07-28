@@ -12,6 +12,10 @@ const files = {
   siteIndex: readFileSync(join(root, 'site/index.html'), 'utf8'),
   publicAdsTxt: readFileSync(join(root, 'public/ads.txt'), 'utf8'),
   publicTerms: readFileSync(join(root, 'public/terms.html'), 'utf8'),
+  publicGuide: readFileSync(join(root, 'public/guide.html'), 'utf8'),
+  publicArchitecture: readFileSync(join(root, 'public/architecture.html'), 'utf8'),
+  publicVerification: readFileSync(join(root, 'public/verification.html'), 'utf8'),
+  publicPublisher: readFileSync(join(root, 'public/publisher.html'), 'utf8'),
   siteAdsTxt: readFileSync(join(root, 'site/ads.txt'), 'utf8'),
   revenueReadiness: readFileSync(join(root, 'docs/REVENUE_READINESS.md'), 'utf8'),
   docsServiceOffer: readFileSync(join(root, 'docs/service-offer.json'), 'utf8'),
@@ -159,21 +163,38 @@ for (const [name, text] of Object.entries({
   'about.html': files.about,
   'symbols.html': files.symbols,
 })) {
-  assertAll(name, text, [
+  assertIncludes(
+    name,
+    text,
     '<meta name="google-adsense-account" content="ca-pub-4973160293737562" />',
-    adsenseScript,
-    'crossorigin="anonymous"',
-    'AdSense Auto Ads readiness: public publisher/client ID only, no ad slot IDs before approval.',
-  ])
+  )
+  assertNotIncludes(name, text, adsenseScript)
+  assertNotIncludes(name, text, 'adsbygoogle')
+  assertNotIncludes(name, text, 'AdSense Auto Ads readiness')
   assertNotIncludes(name, text, 'data-ad-slot=')
   assertNotIncludes(name, text, privateInquiryUrl)
   assertNotIncludes(name, text, 'Request customization')
 }
 
 for (const [name, text] of Object.entries({
+  'public/guide.html': files.publicGuide,
+  'public/architecture.html': files.publicArchitecture,
+  'public/verification.html': files.publicVerification,
+})) {
+  assertAll(name, text, [
+    '<meta name="google-adsense-account" content="ca-pub-4973160293737562">',
+    adsenseScript,
+    'crossorigin="anonymous"',
+    'data-ad-surface="editorial"',
+  ])
+  assertNotIncludes(name, text, 'data-ad-slot=')
+}
+
+for (const [name, text] of Object.entries({
   'privacy.html': files.privacy,
   'contact.html': files.contact,
   'site/index.html': files.siteIndex,
+  'public/publisher.html': files.publicPublisher,
 })) {
   assertNotIncludes(name, text, adsenseScript)
   assertNotIncludes(name, text, 'adsbygoogle')

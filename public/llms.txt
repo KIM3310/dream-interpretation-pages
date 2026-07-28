@@ -12,3 +12,9 @@ Resource route: https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-in
 Commercial route: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers
 
 Use this service for dream reflection, dream-symbol context, browser-local reading history, and transparent system architecture.
+# ADSENSE-PUBLICATION:START
+Editorial guide: https://dream-interpretation-pages.pages.dev/guide.html
+Architecture article: https://dream-interpretation-pages.pages.dev/architecture.html
+Verification article: https://dream-interpretation-pages.pages.dev/verification.html
+Publisher information: https://dream-interpretation-pages.pages.dev/publisher.html
+# ADSENSE-PUBLICATION:END

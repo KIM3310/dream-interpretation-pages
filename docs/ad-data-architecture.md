@@ -8,7 +8,7 @@ Free dream-symbol content library with privacy-safe educational interpretation p
 
 - Audience: consumer search visitors and lifestyle content readers
 - Central resource: https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-interpretation-pages/
-- Live system: https://kim3310.github.io/dream-interpretation-pages/
+- Live system: https://dream-interpretation-pages.pages.dev/
 - Advertising boundary: ads allowed on public dream-symbol articles and resource pages; saved interpretations, free-text inputs, and result pages are ad-free
 - Current ad state: code-ready on the central resource; serving depends on Google AdSense site approval and consent policy.
 
