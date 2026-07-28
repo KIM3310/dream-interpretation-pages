@@ -29,6 +29,8 @@ const adsensePublisher = 'pub-4973160293737562'
 const adsenseScript = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`
 const adsTxtRecord = `google.com, ${adsensePublisher}, DIRECT, f08c47fec0942fa0`
 const canonicalUrl = 'https://dream-interpretation-pages.pages.dev/'
+const privateInquiryUrl =
+  'https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry'
 
 function assertIncludes(name, text, marker) {
   if (!text.includes(marker)) {
@@ -61,6 +63,17 @@ assertEquals('service-offer copies', JSON.stringify(publicServiceOffer), JSON.st
 assertEquals('service-offer canonical URL', docsServiceOffer.canonical_url, canonicalUrl)
 assertEquals('structured-data canonical URL', docsServiceOffer.structured_data.url, canonicalUrl)
 assertEquals('free structured-data offer price', docsServiceOffer.structured_data.offers[0].price, '0')
+assertEquals('private inquiry URL', docsServiceOffer.lead_capture_url, privateInquiryUrl)
+assertEquals('customization lane', docsServiceOffer.commerce.lane_id, 'consumer-prototype-customization')
+assertEquals('customization billing mode', docsServiceOffer.commerce.billing_mode, 'one-time')
+assertEquals('checkout provider', docsServiceOffer.commerce.checkout.provider, null)
+assertEquals('checkout status', docsServiceOffer.commerce.checkout.status, 'not-configured')
+assertEquals('checkout fallback URL', docsServiceOffer.commerce.checkout.fallback_url, privateInquiryUrl)
+assertIncludes(
+  'private customization paid boundary',
+  docsServiceOffer.monetization_boundary.paid,
+  'fixed-scope private product customization',
+)
 assertIncludes('AdSense consent logo', files.consentLogoSvg, 'viewBox="0 0 500 100"')
 assertEquals('AdSense consent logo PNG signature', files.consentLogoPng.subarray(1, 4).toString(), 'PNG')
 if (files.consentLogoPng.length > 150 * 1024) {
@@ -121,9 +134,12 @@ assertAll('interpret route', files.interpret, [
 
 assertAll('architecture pack route', files.architecturePack, [
   'readiness_contract: "dream-architecture-pack-v1"',
+  'GEMINI_API_KEY',
+  'GEMINI_MODEL',
+  'gemini_configured',
   'public_fail_closed',
   'architecture_sequence',
-  'OpenAI is called only from Pages Functions',
+  'LLM providers are called only from Pages Functions',
   '/api/interpret',
 ])
 
@@ -148,6 +164,8 @@ for (const [name, text] of Object.entries({
     'AdSense Auto Ads readiness: public publisher/client ID only, no ad slot IDs before approval.',
   ])
   assertNotIncludes(name, text, 'data-ad-slot=')
+  assertNotIncludes(name, text, privateInquiryUrl)
+  assertNotIncludes(name, text, 'Request customization')
 }
 
 for (const [name, text] of Object.entries({
@@ -162,6 +180,30 @@ for (const [name, text] of Object.entries({
     text,
     'AdSense Auto Ads readiness: public publisher/client ID only, no ad slot IDs before approval.',
   )
+}
+
+assertAll('technical service page customization lane', files.siteIndex, [
+  privateInquiryUrl,
+  'Request customization',
+  'AdSense-ready content pages',
+  'Private product customization uses a separate inquiry path',
+])
+
+for (const [name, text] of Object.entries({
+  'README.md': readFileSync(join(root, 'README.md'), 'utf8'),
+  'docs/search-growth-implementation.md': readFileSync(
+    join(root, 'docs/search-growth-implementation.md'),
+    'utf8',
+  ),
+  'docs/revenue-architecture.md': readFileSync(join(root, 'docs/revenue-architecture.md'), 'utf8'),
+  'docs/service-offer.json': files.docsServiceOffer,
+  'public/service-offer.json': files.publicServiceOffer,
+  'public/llms.txt': readFileSync(join(root, 'public/llms.txt'), 'utf8'),
+  'site/index.html': files.siteIndex,
+})) {
+  assertNotIncludes(name, text, 'optional supporter access')
+  assertNotIncludes(name, text, 'downloadable reflection packs after checkout activation')
+  assertNotIncludes(name, text, 'GitHub Issue Form')
 }
 
 assertEquals('public/ads.txt', files.publicAdsTxt.trim(), adsTxtRecord)

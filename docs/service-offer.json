@@ -5,9 +5,9 @@
   "repository_url": "https://github.com/KIM3310/dream-interpretation-pages",
   "architecture_url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/system-architecture.md",
   "revenue_architecture_url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md",
-  "lead_capture_url": "https://github.com/KIM3310/dream-interpretation-pages/issues/new?template=service-inquiry.yml&title=Private+workspace+inquiry%3A+Dream+Interpretation+Pages",
+  "lead_capture_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry",
   "productized_offer": "AI-assisted dream reflection with browser-local reading history and edited symbol guides",
-  "first_paid_sku": "optional supporter access and downloadable reflection packs after checkout activation",
+  "first_paid_sku": "fixed-scope private product customization for one audience-specific dream reflection workflow",
   "free_lead_magnet": "free dream reflection tool, symbol guide, and browser-local reading history",
   "search_positioning": {
     "primary_query": "AI 꿈 해석 감정 기록",
@@ -21,7 +21,7 @@
   },
   "monetization_boundary": {
     "free": "free dream reflection tool, symbol guide, and browser-local reading history",
-    "paid": "optional supporter access and downloadable reflection packs after checkout activation",
+    "paid": "fixed-scope private product customization for one audience-specific dream reflection workflow",
     "metering_hooks": [
       "workspace_id",
       "plan",
@@ -66,20 +66,20 @@
   },
   "commerce": {
     "gateway_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers",
-    "lane_id": "consumer-learning-supporter-lane",
-    "lane_name": "Consumer Learning Supporter Lane",
-    "billing_mode": "supporter",
-    "price_unit": "supporter bundle from USD 5/month or one-time theme and report packs from USD 20",
-    "fulfillment_kind": "supporter access, export or theme pack, classroom setup notes, and content publishing",
+    "lane_id": "consumer-prototype-customization",
+    "lane_name": "Consumer Prototype Customization",
+    "billing_mode": "one-time",
+    "price_unit": "fixed customization from USD 1,000",
+    "fulfillment_kind": "one audience-specific flow, branded content set, privacy and claim boundary, deployment package, and handoff notes",
     "risk_bucket": "consumer-guarded",
     "checkout": {
-      "provider": "lemon-squeezy",
-      "status": "account-onboarding-required",
-      "fallback_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers"
+      "provider": null,
+      "status": "not-configured",
+      "fallback_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry"
     },
     "sponsorship": {
       "provider": "github-sponsors",
-      "eligible": true,
+      "eligible": false,
       "status": "sponsors-listing-not-configured"
     },
     "advertising": {

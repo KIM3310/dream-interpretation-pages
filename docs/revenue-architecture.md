@@ -8,10 +8,11 @@ This document turns the repository architecture into a zero-to-low-cost service 
 | --- | --- |
 | Target buyer / user | consumer wellness user or content operator needing a lightweight reflective AI experience |
 | Productized offer | AI-assisted dream reflection with browser-local reading history and edited symbol guides |
-| First paid SKU | optional supporter access and downloadable reflection packs after checkout activation |
+| First paid SKU | fixed-scope private product customization for one audience-specific dream reflection workflow |
 | Free lead magnet | free dream reflection tool, symbol guide, and browser-local reading history |
-| Paid expansion | supporter access, downloadable reflection packs, and optional export themes |
+| Paid expansion | audience-specific flow, branded content set, privacy and claim boundary, deployment package, and handoff notes |
 | Data / workflow moat | personal symbol history, anonymized theme clusters, report templates, and retention-friendly journal exports |
+| Private inquiry | https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry |
 
 ## Free-Tier-First Launch Stack
 
@@ -37,24 +38,24 @@ flowchart LR
   Meter --> Core["Repository core workflow"]
   Core --> AI["Free or customer-key AI inference"]
   Core --> Export["Reports, traces, bundles, or templates"]
-  Export --> Upgrade["Paid SKU: private workspace / support / connector / export pack"]
+  Export --> Upgrade["Private customization inquiry"]
   Upgrade --> Retention["Saved history, private data, team controls, and recurring reports"]
 ```
 
 ## Metering And Paywall Hooks
 
 - Start with anonymous read-only demos and synthetic data so traffic costs stay near zero.
-- Add `workspace_id`, `plan`, `quota_day`, and `export_count` fields before adding payment; this lets the app enforce limits without redesign.
+- Add `workspace_id`, `plan`, `quota_day`, and `export_count` fields before any paid workflow; this lets the app enforce limits without redesign.
 - Cache AI outputs by normalized prompt, scenario, model, and version. Paid users can bypass cache with their own provider key.
-- Keep exports, private connectors, longer retention, branded reports, team seats, and SLA support behind the paid boundary.
+- Keep audience-specific flows, private connectors, longer retention, branded content sets, team controls, and implementation handoff behind the private customization boundary.
 - Store only the minimum data needed for the free tier. Push private/customer data into local runtime or customer-owned accounts whenever possible.
 
 ## 30-Day Revenue Test
 
-1. Publish the public demo or architecture page with one clear CTA: request private workspace, download a pack, or run a sample report.
-2. Add a lead capture route using Workers + D1/KV, Supabase, Firebase, or a GitHub issue form.
-3. Create one downloadable artifact: report PDF, template pack, runbook, dataset sample, or export bundle.
-4. Offer a fixed-scope paid package before building subscription complexity.
+1. Publish the public AdSense content pages and keep the app CTA focused on free dream reflection.
+2. Keep the product customization CTA on the central private inquiry route, separate from pages that load ads.
+3. Create one non-sensitive sample artifact: content brief, runbook, dataset sample, or export example.
+4. Offer a fixed-scope customization package before building subscription or checkout complexity.
 5. Track activation manually first: visits, CTA clicks, export requests, email replies, and paid pilot conversations.
 
 ## Cost Guardrails

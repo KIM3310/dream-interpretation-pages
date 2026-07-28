@@ -163,9 +163,9 @@ npm run build
 ## Search And Service Surface
 
 - Public entry: free dream reflection tool, symbol guide, and browser-local reading history
-- Paid boundary: optional supporter access and downloadable reflection packs after checkout activation
+- Paid boundary: fixed-scope private product customization for one audience-specific dream reflection workflow
 - Canonical URL: https://dream-interpretation-pages.pages.dev/
-- Lead capture: https://github.com/KIM3310/dream-interpretation-pages/issues/new?template=service-inquiry.yml&title=Private+workspace+inquiry%3A+Dream+Interpretation+Pages
+- Lead capture: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry
 - Commercial route: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers
 - Machine-readable offer: [docs/service-offer.json](docs/service-offer.json)
 - Search growth implementation: [docs/search-growth-implementation.md](docs/search-growth-implementation.md)

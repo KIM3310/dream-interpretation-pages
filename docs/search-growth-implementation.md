@@ -10,7 +10,7 @@ This repository now exposes a search-readable service surface in addition to the
 | Revenue architecture | [docs/revenue-architecture.md](./revenue-architecture.md) |
 | System architecture | [docs/system-architecture.md](./system-architecture.md) |
 | Public canonical URL | https://dream-interpretation-pages.pages.dev/ |
-| Lead capture URL | https://github.com/KIM3310/dream-interpretation-pages/issues/new?template=service-inquiry.yml&title=Private+workspace+inquiry%3A+Dream+Interpretation+Pages |
+| Lead capture URL | https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry |
 | Commercial route | https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers |
 
 ## Search Positioning
@@ -18,15 +18,15 @@ This repository now exposes a search-readable service surface in addition to the
 - Primary query: Dream Interpretation Pages journaling symbolic prompts
 - Secondary queries: Dream Interpretation Pages demo; Dream Interpretation Pages system architecture; Dream Interpretation Pages lifestyle tool; dream interpretation pages with private journaling, symbolic prompts, and shareable report cards service
 - Public entry point: free dream reflection tool, symbol guide, and browser-local reading history
-- Paid boundary: optional supporter access and downloadable reflection packs after checkout activation
+- Paid boundary: fixed-scope private product customization for one audience-specific dream reflection workflow
 
 ## Conversion Boundary
 
-The public surface stays crawlable and free. Paid value starts when a visitor wants private data, saved history, branded export packs, customer-specific connectors, recurring reports, or implementation support.
+The public surface stays crawlable, free, and AdSense-ready. Product customization stays on the separate central private inquiry path when an operator wants an audience-specific flow, branded content set, privacy and claim boundary, deployment package, or handoff notes.
 
 ## Deployment Notes
 
 - Keep the sitemap and robots file aligned with the final production domain.
 - Submit the canonical URL and sitemap in Google Search Console after the domain is connected.
-- The lead-capture path is a GitHub Issue Form so private workspace and paid-package requests create a trackable queue before payment infrastructure is added.
+- The lead-capture path is the central private inquiry route with `inquiry=consumer-prototype-customization`; it is separate from the public AdSense content pages and no checkout provider is configured in this repository.
 - Keep exact free-tier quotas out of public promises because provider limits change.
