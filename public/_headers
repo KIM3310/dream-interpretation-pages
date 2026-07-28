@@ -5,12 +5,12 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
 # ADSENSE-PUBLICATION-CSP:START
-/guide.html
+/guide
   ! Content-Security-Policy
 
-/architecture.html
+/architecture
   ! Content-Security-Policy
 
-/verification.html
+/verification
   ! Content-Security-Policy
 # ADSENSE-PUBLICATION-CSP:END

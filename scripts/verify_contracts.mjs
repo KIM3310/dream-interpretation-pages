@@ -234,7 +234,7 @@ assertEquals('site/ads.txt', files.siteAdsTxt.trim(), adsTxtRecord)
 
 assertAll('terms page', files.publicTerms, [
   '이용약관',
-  'dream-interpretation-pages.pages.dev/terms.html',
+  'dream-interpretation-pages.pages.dev/terms',
   'ca-pub-4973160293737562',
 ])
 

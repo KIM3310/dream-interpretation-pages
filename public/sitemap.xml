@@ -7,37 +7,37 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dream-interpretation-pages.pages.dev/guide.html</loc>
+    <loc>https://dream-interpretation-pages.pages.dev/guide</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dream-interpretation-pages.pages.dev/architecture.html</loc>
+    <loc>https://dream-interpretation-pages.pages.dev/architecture</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dream-interpretation-pages.pages.dev/verification.html</loc>
+    <loc>https://dream-interpretation-pages.pages.dev/verification</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dream-interpretation-pages.pages.dev/publisher.html</loc>
+    <loc>https://dream-interpretation-pages.pages.dev/publisher</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dream-interpretation-pages.pages.dev/privacy.html</loc>
+    <loc>https://dream-interpretation-pages.pages.dev/privacy</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dream-interpretation-pages.pages.dev/terms.html</loc>
+    <loc>https://dream-interpretation-pages.pages.dev/terms</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -50,12 +50,6 @@
   </url>
   <url>
     <loc>https://dream-interpretation-pages.pages.dev/symbols</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dream-interpretation-pages.pages.dev/privacy</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
