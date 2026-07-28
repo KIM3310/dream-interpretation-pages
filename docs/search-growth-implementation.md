@@ -11,6 +11,7 @@ This repository now exposes a search-readable service surface in addition to the
 | System architecture | [docs/system-architecture.md](./system-architecture.md) |
 | Public canonical URL | https://dream-interpretation-pages.pages.dev/ |
 | Lead capture URL | https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry |
+| Repository resource route | https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-interpretation-pages/ |
 | Commercial route | https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers |
 
 ## Search Positioning

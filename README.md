@@ -166,9 +166,20 @@ npm run build
 - Paid boundary: fixed-scope private product customization for one audience-specific dream reflection workflow
 - Canonical URL: https://dream-interpretation-pages.pages.dev/
 - Lead capture: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry
+- Resource route: https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-interpretation-pages/
 - Commercial route: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers
 - Machine-readable offer: [docs/service-offer.json](docs/service-offer.json)
 - Search growth implementation: [docs/search-growth-implementation.md](docs/search-growth-implementation.md)
 - Revenue architecture: [docs/revenue-architecture.md](docs/revenue-architecture.md)
 
 <!-- search-growth-readme:end -->
+
+<!-- KIM3310:AD-DATA-PIVOT:START -->
+## Free Resource, Advertising, and Aggregate Data
+
+- [Public utility and architecture checklist](https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-interpretation-pages/)
+- Revenue model: contextual advertising on the policy-eligible central resource page.
+- Aggregate value: anonymous aggregate topic-level dream-symbol page demand and content navigation counts
+- Boundary: ads allowed on public dream-symbol articles and resource pages; saved interpretations, free-text inputs, and result pages are ad-free
+- Consent defaults off, DNT/GPC fail closed, and personal or sensitive data is never sold.
+<!-- KIM3310:AD-DATA-PIVOT:END -->

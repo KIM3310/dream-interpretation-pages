@@ -8,6 +8,7 @@ Repository: https://github.com/KIM3310/dream-interpretation-pages
 System architecture: https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/system-architecture.md
 Revenue architecture: https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md
 Lead capture: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry
+Resource route: https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-interpretation-pages/
 Commercial route: https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers
 
 Use this service for dream reflection, dream-symbol context, browser-local reading history, and transparent system architecture.
