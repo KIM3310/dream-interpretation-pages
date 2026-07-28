@@ -11,6 +11,7 @@ const files = {
   symbols: readFileSync(join(root, 'symbols.html'), 'utf8'),
   siteIndex: readFileSync(join(root, 'site/index.html'), 'utf8'),
   publicAdsTxt: readFileSync(join(root, 'public/ads.txt'), 'utf8'),
+  publicTerms: readFileSync(join(root, 'public/terms.html'), 'utf8'),
   siteAdsTxt: readFileSync(join(root, 'site/ads.txt'), 'utf8'),
   revenueReadiness: readFileSync(join(root, 'docs/REVENUE_READINESS.md'), 'utf8'),
   docsServiceOffer: readFileSync(join(root, 'docs/service-offer.json'), 'utf8'),
@@ -92,7 +93,7 @@ assertEquals('AdSense eligibility', docsServiceOffer.commerce.advertising.eligib
 assertEquals(
   'AdSense activation status',
   docsServiceOffer.commerce.advertising.status,
-  'site-review-pending',
+  'central-resource-site-review-dependent',
 )
 
 assertAll('index SEO', files.index, [
@@ -159,6 +160,7 @@ for (const [name, text] of Object.entries({
   'symbols.html': files.symbols,
 })) {
   assertAll(name, text, [
+    '<meta name="google-adsense-account" content="ca-pub-4973160293737562" />',
     adsenseScript,
     'crossorigin="anonymous"',
     'AdSense Auto Ads readiness: public publisher/client ID only, no ad slot IDs before approval.',
@@ -208,6 +210,12 @@ for (const [name, text] of Object.entries({
 
 assertEquals('public/ads.txt', files.publicAdsTxt.trim(), adsTxtRecord)
 assertEquals('site/ads.txt', files.siteAdsTxt.trim(), adsTxtRecord)
+
+assertAll('terms page', files.publicTerms, [
+  '이용약관',
+  'dream-interpretation-pages.pages.dev/terms.html',
+  'ca-pub-4973160293737562',
+])
 
 assertAll('privacy page', files.privacy, [
   'Google AdSense',
