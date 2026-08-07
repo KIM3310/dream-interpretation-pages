@@ -1,45 +1,1 @@
-{
-  "name": "dream-interpretation-pages",
-  "private": true,
-  "version": "0.1.0",
-  "description": "Korean dream interpretation platform on Cloudflare Pages with AI-powered analysis",
-  "homepage": "https://github.com/KIM3310/dream-interpretation-pages",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/KIM3310/dream-interpretation-pages.git"
-  },
-  "keywords": [
-    "dream-interpretation",
-    "korean",
-    "cloudflare-pages",
-    "openai",
-    "typescript",
-    "vite"
-  ],
-  "license": "MIT",
-  "author": "Doeon Kim",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -p tsconfig.json && tsc -p tsconfig.functions.json && vite build",
-    "check": "tsc -p tsconfig.json && tsc -p tsconfig.functions.json",
-    "lint": "npm run check",
-    "preview": "vite preview",
-    "cf:dev": "npm run build && wrangler pages dev dist",
-    "test": "node scripts/verify_contracts.mjs",
-    "verify": "npm run check && npm test && npm run build"
-  },
-  "devDependencies": {
-    "typescript": "~5.9.3",
-    "vite": "^8.1.5",
-    "wrangler": "^4.114.0"
-  },
-  "overrides": {
-    "esbuild": "^0.28.1",
-    "sharp": "^0.35.3",
-    "ws": "^8.20.1"
-  },
-  "engines": {
-    "node": ">=22.12.0"
-  }
-}
+m«ëˆ§½©buªàºg§¶–œ‘¨ŽÊ'RÆ y¶¬{®vçºh¢ø¥zŠ.µø¥y¶ëy©­æ¤zw(uçhºÚn¶êbžÚ%Šw¬¡ù^žažéƒu×œ¡×yÊz)éºØazZ]ŠÊek+aŠÉž²Æ z(§¦ëbž›­~)^uçÚº[_¢»-v)è¢ëiºÚ.¶›­~)^uçÚº[_¢»-v‹­
