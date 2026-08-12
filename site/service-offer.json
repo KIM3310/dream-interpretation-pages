@@ -1,0 +1,106 @@
+{
+  "name": "달빛해몽소",
+  "slug": "dream-interpretation-pages",
+  "canonical_url": "https://dream-interpretation-pages.pages.dev/",
+  "repository_url": "https://github.com/KIM3310/dream-interpretation-pages",
+  "architecture_url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/system-architecture.md",
+  "revenue_architecture_url": "https://github.com/KIM3310/dream-interpretation-pages/blob/main/docs/revenue-architecture.md",
+  "lead_capture_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry",
+  "productized_offer": "AI-assisted dream reflection with browser-local reading history and edited symbol guides",
+  "first_paid_sku": "fixed-scope private product customization for one audience-specific dream reflection workflow",
+  "free_lead_magnet": "free dream reflection tool, symbol guide, and browser-local reading history",
+  "search_positioning": {
+    "primary_query": "AI 꿈 해석 감정 기록",
+    "secondary_queries": [
+      "꿈 해몽 상징 풀이",
+      "반복되는 꿈 기록",
+      "달빛해몽소",
+      "Dream Interpretation Pages"
+    ],
+    "audience_intent": "Find a runnable demo, inspect the system architecture, and decide whether a private workspace or implementation package is useful."
+  },
+  "monetization_boundary": {
+    "free": "free dream reflection tool, symbol guide, and browser-local reading history",
+    "paid": "fixed-scope private product customization for one audience-specific dream reflection workflow",
+    "metering_hooks": [
+      "workspace_id",
+      "plan",
+      "quota_day",
+      "export_count",
+      "lead_source"
+    ],
+    "cost_guardrails": [
+      "static first",
+      "edge functions",
+      "customer API keys",
+      "cached AI outputs",
+      "synthetic public data"
+    ]
+  },
+  "structured_data": {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "달빛해몽소",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web",
+    "url": "https://dream-interpretation-pages.pages.dev/",
+    "codeRepository": "https://github.com/KIM3310/dream-interpretation-pages",
+    "description": "꿈의 장면과 감정, 최근 상황을 함께 기록하고 상징의 의미를 차분히 돌아보는 AI 꿈 해석 도구입니다.",
+    "creator": {
+      "@type": "Person",
+      "name": "KIM3310",
+      "url": "https://github.com/KIM3310"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "free dream reflection tool, symbol guide, and browser-local reading history",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://dream-interpretation-pages.pages.dev/"
+      }
+    ],
+    "isAccessibleForFree": true,
+    "keywords": "AI 꿈 해석, 꿈 해몽, 감정 기록, 꿈 상징, 반복되는 꿈, 달빛해몽소"
+  },
+  "commerce": {
+    "gateway_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages#service-offers",
+    "lane_id": "consumer-prototype-customization",
+    "lane_name": "Consumer Prototype Customization",
+    "billing_mode": "one-time",
+    "price_unit": "fixed customization from USD 1,000",
+    "fulfillment_kind": "one audience-specific flow, branded content set, privacy and claim boundary, deployment package, and handoff notes",
+    "risk_bucket": "consumer-guarded",
+    "checkout": {
+      "provider": null,
+      "status": "not-configured",
+      "fallback_url": "https://kim3310-doeon-kim-portfolio.pages.dev/?offer=dream-interpretation-pages&inquiry=consumer-prototype-customization#private-inquiry"
+    },
+    "sponsorship": {
+      "provider": "github-sponsors",
+      "eligible": false,
+      "status": "sponsors-listing-not-configured"
+    },
+    "advertising": {
+      "provider": "google-adsense",
+      "eligible": true,
+      "delivery_surface": "https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-interpretation-pages/",
+      "status": "central-resource-site-review-dependent"
+    }
+  },
+  "monetization_strategy": {
+    "primary_model": "free-public-resource-with-contextual-advertising",
+    "public_resource_url": "https://kim3310-doeon-kim-portfolio.pages.dev/resources/dream-interpretation-pages/",
+    "advertising_provider": "google-adsense",
+    "advertising_status": "code-ready-site-review-dependent",
+    "aggregate_data_value": "anonymous aggregate topic-level dream-symbol page demand and content navigation counts",
+    "aggregate_insight_use": [
+      "publish privacy-safe benchmark summaries",
+      "prioritize useful public resources",
+      "improve search content from aggregate topic demand"
+    ],
+    "data_sale_boundary": "forbid sale of personal, sensitive, raw, event-level, or re-identifiable data",
+    "sensitive_flow_boundary": "ads allowed on public dream-symbol articles and resource pages; saved interpretations, free-text inputs, and result pages are ad-free"
+  }
+}
