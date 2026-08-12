@@ -5,7 +5,7 @@
 - Set `OPENAI_API_KEY` in Cloudflare Pages secrets and verify a real successful interpretation flow.
 - Configure at least one durable protection layer for the external API path.
   Use `TURNSTILE_SECRET_KEY` or a KV binding named `RATE_LIMITER`.
-- Replace placeholder operator emails in `contact.html`.
+- Verify the public issue-selection and privacy-request routes in `contact.html`.
 - Run one live deployment smoke test on the production URL.
 
 ## Product Upgrades

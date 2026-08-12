@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-- [Open the production service](https://dream-interpretation-pages.pages.dev/)
+- [Open the public Cloudflare Pages demo](https://dream-interpretation-pages.pages.dev/)
 - Scope: credential-free, synthetic-data demo for technical review paths and evaluators.
 
 > **Curated supporting repo**
@@ -21,7 +21,6 @@ A consumer AI app that tests fast distribution, safe fallback behavior, and ligh
 | Area | Details |
 |---|---|
 | Users | Consumer AI builders, content communities, and solo users who want low-friction creative interpretation. |
-| Technical path | Validate the demo, README, architecture notes, and quality gate before deeper workflow review. |
 | System scope | Cloudflare Pages functions, server-side AI adapters, abuse controls, deterministic fallback output, and Vite/TypeScript app surface. |
 | Operating boundary | Interpretations are entertainment/reflection content; user prompts need privacy controls and abuse-rate limits. |
 | Evaluation path | Run the local build/functions path and verify fallback behavior without model-provider keys. |
@@ -93,9 +92,9 @@ npm run build
 npx wrangler pages deploy dist --project-name <your-project-name>
 ```
 
-## 공개 배포 전에 바꿔야 할 것
+## 공개 운영 전에 확인할 것
 
-- `contact.html`의 플레이스홀더 이메일
+- `contact.html`의 공개 문의 경로와 개인정보 경고 문구
 - 실제 도메인 기준의 개인정보 처리 문구
 - 자체 편집 콘텐츠 추가
 - 운영자 정보와 브랜드 문구 구체화
@@ -136,7 +135,7 @@ npm run build
 
 - `OPENAI_API_KEY` 또는 `GEMINI_API_KEY`를 Pages secret으로 등록
 - 필요하면 `TURNSTILE_SECRET_KEY`, `VITE_TURNSTILE_SITE_KEY` 연결
-- `contact.html`의 이메일과 운영 정보 교체
+- `contact.html`의 문의 유형 선택과 개인정보 요청 경로 확인
 - 결과 품질을 실 API 키(OpenAI 또는 Gemini)로 한 번 이상 확인
 - `npx wrangler pages deploy dist --project-name <your-project-name>` 실행
 
